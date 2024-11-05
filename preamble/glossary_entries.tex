@@ -1,0 +1,995 @@
+% glossary_entries.tex
+\newglossaryentry{flexibility}{
+  name={Flexibility, Protein Flexibility},
+  description={Property of a protein or protein region to adopt multiple energetically accessible conformations},
+  text=flexibility
+}
+
+\newglossaryentry{dynamics}{
+  name={Dynamics, Protein Dynamics},
+  description={Property of a protein or protein region to transition between conformations over time},
+  text=dynamics
+}
+
+\newglossaryentry{accuracy}{
+  name=Accuracy,
+  description={The degree to which a measurement or prediction conforms to the true value or the standard. It is defined as:\newline   \[ \text{Accuracy} = \frac{\text{True Positives} + \text{True Negatives}}{\text{Total Instances}} \]},
+  text=accuracy
+}
+
+\newglossaryentry{proteinstructure}{
+  name=Protein structure,
+  description={Three-dimensional arrangement of atoms within a protein molecule},
+  text=protein structure,
+  plural=protein structures
+}
+
+\newglossaryentry{conformationallandscape}{
+  name=Conformational landscape,
+  description={The range of possible shapes or conformations that a protein can adopt due to its flexibility and dynamics},
+  text = conformational landscape
+}
+
+\newglossaryentry{backbone}{
+  name=Backbone,
+  description={The main chain of a protein that consists of a repeating sequence of atoms that forms the core of its structure},
+  text = backbone
+}
+
+\newglossaryentry{sidechain}{
+  name=Side chain,
+  description={The variable group attached to the backbone of a protein that determines the properties and function of each amino acid},
+  text = side chain
+}
+
+\newglossaryentry{precision}{
+  name=Precision,
+  description={The ratio of true positive predictions to the total number of positive predictions, indicating the accuracy of positive predictions in a classification problem. It is defined as:\newline \[ \text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}} \]},
+  text=precision
+}
+
+\newglossaryentry{recall}{
+  name=Recall,
+  description={The ratio of true positive predictions to the total number of actual positives, reflecting the ability of a model to identify all relevant instances in a classification problem. It is defined as:\newline \[ \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}} \]},
+  text=recall
+}
+
+\newglossaryentry{f1score}{
+  name=F1-score,
+  description={The harmonic mean of precision and recall, providing a balance between the two metrics in classification problems. It is calculated as:\newline \[ \text{F1-score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} \]},
+  text = F1-score
+}
+
+\newglossaryentry{meansquarederror}{
+  name=Mean Squared Error (MSE),
+  % description={The average of the squares of the differences between predicted and actual values in a regression problem, used to measure the accuracy of a model's predictions. It is defined as:\newline \[ \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)^2 \]},
+  % description={A metric used to measure the accuracy of a model's predictions in regression problems by calculating the average of the squared differences between the predicted values and the actual values. The mean squared error quantifies the variance of the errors, providing insight into how close a regression line is to a set of points. It is defined as:
+  description = {The average of the squares of the differences between predicted and actual values in a regression problem, used to measure the accuracy of a model's predictions. It is defined as:
+  \newline
+  \[
+  \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)^2
+  \]
+  where:
+  \begin{itemize}
+      \item \(n\) is the total number of observations,
+      \item \(\hat{y}_i\) is the predicted value for the \(i\)-th observation,
+      \item \(y_i\) is the actual value for the \(i\)-th observation,
+      \item \((\hat{y}_i - y_i)^2\) represents the squared difference between the predicted and actual values for the \(i\)-th observation.
+  \end{itemize}
+  The MSE is widely used in regression analysis to assess the quality of a model, with lower values indicating better model performance},
+  text=Mean Squared Error
+}
+
+% \newacronym[type=main]{mse}{MSE}{\glslink{meansquarederror}{Mean Squared Error}}
+
+% \newglossaryentry{rootmeansquarederror}{
+%   name=Root Mean Squared Error (RMSE),
+%   description={The square root of the average squared differences between predicted and actual values, providing a measure of the spread of prediction errors in a regression problem. It is defined as:\newline \[ \text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)^2} \]},
+%   text=Root Mean Squared Error
+% }
+
+% \newglossaryentry{meanabsoluteerror}{
+%   name=Mean Absolute Error (MAE),
+%   description={The average of the absolute differences between predicted and actual values in a regression problem, reflecting the magnitude of prediction errors. It is defined as:\newline \[ \text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |\hat{y}_i - y_i| \]},
+%   text=Mean Absolute Error
+% }
+
+% \newglossaryentry{rsquared}{
+%   name=R-squared,
+%   description={The proportion of the variance in the dependent variable that is predictable from the independent variables in a regression model, indicating the model's goodness of fit. It is defined as:\newline \[ R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2} \]},
+%   text=R-squared
+% }
+
+% Define the glossary entry for Root Mean Squared Error (RMSE)
+\newglossaryentry{rootmeansquarederror}{
+  name={Root Mean Squared Error (RMSE)},
+  description={
+  % A metric used to measure the spread of prediction errors in a regression problem by calculating the square root of the average squared differences between predicted and actual values. RMSE provides an indication of how well a model’s predictions match the actual data points. It is defined as:
+  The square root of the average squared differences between predicted and actual values, providing a measure of the spread of prediction errors in a regression problem. It is defined as:\newline
+  \[
+  \text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)^2}
+  \]
+  where:
+  \begin{itemize}
+      \item \(n\) is the total number of observations,
+      \item \(\hat{y}_i\) is the predicted value for the \(i\)-th observation,
+      \item \(y_i\) is the actual value for the \(i\)-th observation,
+      \item \((\hat{y}_i - y_i)^2\) represents the squared difference between the predicted and actual values for the \(i\)-th observation.
+  \end{itemize}
+  Lower RMSE values indicate better model performance, as they signify smaller prediction errors},
+  text={Root Mean Squared Error}
+}
+
+% Define the glossary entry for Mean Absolute Error (MAE)
+\newglossaryentry{meanabsoluteerror}{
+  name={Mean Absolute Error (MAE)},
+  description={
+  % A metric used to measure the magnitude of prediction errors in a regression problem by calculating the average of the absolute differences between predicted and actual values. MAE provides an intuitive measure of prediction accuracy, reflecting the average absolute error in the units of the data. It is defined as:
+  The average of the absolute differences between predicted and actual values in a regression problem, reflecting the magnitude of prediction errors. It is defined as:\newline
+  \[
+  \text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |\hat{y}_i - y_i|
+  \]
+  where:
+  \begin{itemize}
+      \item \(n\) is the total number of observations,
+      \item \(\hat{y}_i\) is the predicted value for the \(i\)-th observation,
+      \item \(y_i\) is the actual value for the \(i\)-th observation,
+      \item \(|\hat{y}_i - y_i|\) represents the absolute difference between the predicted and actual values for the \(i\)-th observation.
+  \end{itemize}
+  Lower MAE values indicate better model performance by showing smaller average errors in predictions},
+  text={Mean Absolute Error}
+}
+
+% Define the glossary entry for R-squared (R²)
+\newglossaryentry{rsquared}{
+  name={R-squared ($\text{R}^2$)},
+  description={
+  % A statistical measure that represents the proportion of the variance in the dependent variable that is predictable from the independent variables in a regression model. It indicates the goodness of fit of the model, with higher values suggesting that the model explains a larger portion of the variance. R-squared is defined as:
+  The proportion of the variance in the dependent variable that is predictable from the independent variables in a regression model, indicating the model's goodness of fit. It is defined as:\newline
+  \[
+  R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
+  \]
+  where:
+  \begin{itemize}
+      \item \(n\) is the total number of observations,
+      \item \(y_i\) is the actual value for the \(i\)-th observation,
+      \item \(\hat{y}_i\) is the predicted value for the \(i\)-th observation,
+      \item \(\bar{y}\) is the mean of the actual values,
+      \item \(\sum_{i=1}^{n} (y_i - \hat{y}_i)^2\) is the sum of squared residuals (the variance of the prediction errors),
+      \item \(\sum_{i=1}^{n} (y_i - \bar{y})^2\) is the total variance in the actual values.
+  \end{itemize}
+  An R-squared value closer to 1 indicates that the model explains a large portion of the variance in the dependent variable, while a value closer to 0 indicates that the model does not explain much of the variance},
+  text={R-squared}
+}
+
+
+
+% Define the glossary entry for DNA
+\newglossaryentry{dna}{
+  name={Deoxyribonucleic Acid (DNA)},
+  description={A molecule that carries the genetic instructions used in the growth, development, functioning, and reproduction of all known living organisms and many viruses},
+  text=DNA
+}
+
+% Define the glossary entry for RNA
+\newglossaryentry{rna}{
+  name={Ribonucleic Acid (RNA)},
+  description={A molecule essential in various biological roles in coding, decoding, regulation, and expression of genes},
+  text=RNA
+}
+
+% Define the glossary entry for Intrinsically Disordered Regions (IDR)
+\newglossaryentry{idr}{
+  name={Intrinsically Disordered Regions (IDR)},
+  description={Regions within a protein that lack a fixed or ordered three-dimensional structure under physiological conditions},
+  text=IDR
+}
+
+
+% Define the glossary entry for Intrinsically Disordered Proteins (IDP)
+\newglossaryentry{idp}{
+  name={Intrinsically Disordered Proteins (IDP)},
+  description={Proteins that lack a fixed or ordered three-dimensional structure under physiological conditions, allowing them to adopt multiple conformations and perform various functions},
+  text=IDP
+}
+
+
+% Define the glossary entry for Root Mean Square Deviation (RMSD)
+\newglossaryentry{rmsd}{
+  name={Root Mean Square Deviation (RMSD)},
+  description={A measure used to quantify the difference between positions of atoms, usually of a protein, over time in molecular dynamics simulations. It provides insights into the structural stability and conformational changes of the molecule. It is defined as:\newline \[
+  \text{RMSD} = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (r_i(t) - r_i(0))^2}
+  \]
+  where:
+  \begin{itemize}
+      \item \(N\) is the number of atoms, 
+      \item \(r_i(t)\) is the position of atom \(i\) at time \(t\), 
+      \item \(r_i(0)\) is the reference position of atom \(i\)
+  \end{itemize}},
+  % \(N\) is the number of atoms, \(r_i(t)\) is the position of atom \(i\) at time \(t\), and \(r_i(0)\) is the reference position of atom \(i\)},
+  text=RMSD}
+
+% Define the glossary entry for Root Mean Square Fluctuations (RMSF)
+\newglossaryentry{rmsf}{
+  name={Root Mean Square Fluctuations (RMSF)},
+  description={A metric that measures the average deviation of an atom or a group of atoms from a reference position over time in molecular dynamics simulations, indicating the flexibility of specific regions within a molecule. It is defined as:\newline \[
+  \text{RMSF}_i = \sqrt{\langle (r_i(t) - \langle r_i \rangle)^2 \rangle}
+  \]
+  where:
+  \begin{itemize}
+      \item \(\langle r_i \rangle\) is the average position of atom \(i\) over the simulation time
+      \item \(r_i(t)\) is the position of atom \(i\) at time \(t\)
+  \end{itemize}
+  % \(\langle r_i \rangle\) is the average position of atom \(i\) over the simulation time, and \(r_i(t)\) is the position of atom \(i\) at time \(t\)
+  },
+  text=RMSF}
+
+% Define the glossary entry for Circular Variance (CV)
+\newglossaryentry{cv}{
+  name={Circular Variance (CV)},
+  description={A measure of the angular spread of data points on a circular scale, used in molecular dynamics to analyse angular distributions such as bond angles, dihedral angles, or orientation of vectors over time. It is defined as:\newline \[
+  \text{CV} = 1 - R
+  \]
+  where \(R\) is the mean resultant length, calculated as \newline \[R = \sqrt{\left( \frac{1}{N} \sum_{i=1}^{N} \cos(\theta_i) \right)^2 + \left( \frac{1}{N} \sum_{i=1}^{N} \sin(\theta_i) \right)^2}\] \newline and \(\theta_i\) are the angles in question for each sample \textit{i}},
+  text=CV
+}
+
+\newglossaryentry{conformation}{
+name = {Conformation},
+description = {A specific spatial arrangement of atoms within a protein at a given moment in time. Proteins are dynamic molecules and can adopt multiple conformations due to the flexibility of their polypeptide chains},
+text = conformation,
+plural = conformations,
+}
+
+% Define the glossary entry for Gibbs Free Energy (GFE)
+\newglossaryentry{gibbsfreeenergy}{
+  name={Gibbs Free Energy},
+  description={A thermodynamic potential that measures the maximum reversible work that can be performed by a thermodynamic system at a constant temperature and pressure. It is a useful quantity for predicting the direction of chemical reactions and phase changes. The difference in Gibbs free energy between the folded and unfolded states of a protein, often referred to as \(\Delta G\), determines the stability of the protein. A negative \(\Delta G\) indicates that the folded state is more stable, promoting proper protein folding. The Gibbs free energy is defined as:\newline \[
+  G = H - TS
+  \]
+  where \(G\) is the Gibbs free energy, \(H\) is the enthalpy, \(T\) is the absolute temperature, and \(S\) is the entropy of the system},
+  text={Gibbs free energy}}
+
+
+% Define the glossary entry for Entropy (S)
+\newglossaryentry{entropy}{
+  name={Entropy (S)},
+  description={A measure of the disorder or randomness in a system, reflecting the number of possible microscopic configurations that correspond to a thermodynamic system's macroscopic state. In the context of proteins, entropy plays a crucial role in protein folding and stability. An increase in entropy is typically associated with the unfolded state of a protein, where there is more conformational freedom. The entropy change (\(\Delta S\)) during protein folding is a key factor in determining the overall Gibbs free energy change (\(\Delta G\)). Entropy is defined by the Boltzmann equation:\newline \[
+  S = k_B \ln \Omega
+  \]
+  where:
+  \begin{itemize}
+      \item \(S\) is entropy, 
+      \item \(k_B\) is the Boltzmann constant, 
+      \item \(\Omega\) is the number of microstates
+  \end{itemize}},
+  text={entropy}
+}
+
+
+% Define the glossary entry for Enthalpy (H)
+\newglossaryentry{enthalpy}{
+  name={Enthalpy (H)},
+  description={A measure of the total heat content of a thermodynamic system. Enthalpy includes the internal energy of the system plus the product of pressure and volume. In protein biochemistry, enthalpy changes (\(\Delta H\)) are associated with the breaking and forming of bonds during protein folding and unfolding. A negative \(\Delta H\) indicates that the folding process releases heat, making the reaction exothermic. Enthalpy is defined as:\newline \[
+  H = U + PV
+  \]
+  where \(H\) is enthalpy, \(U\) is internal energy, \(P\) is pressure, and \(V\) is volume},
+  text={enthalpy}
+}
+
+\newglossaryentry{microscopy}{
+  name={Microscopy},
+  description={A technique used to view objects and areas of objects that cannot be seen with the naked eye. This is achieved through the use of a microscope, which magnifies the sample. Different types of microscopy, such as fluorescence microscopy, electron microscopy, and atomic force microscopy, provide various levels of resolution and contrast, allowing visualisation of intricate details of biological samples at the molecular and atomic levels},
+  text={microscopy}
+}
+
+% Define the glossary entry for Nuclear Spin
+\newglossaryentry{nuclearspin}{
+  name={Nuclear Spin},
+  description={A fundamental property of atomic nuclei, arising from the angular momentum of protons and neutrons. Nuclear spin is a quantum mechanical property that leads to the magnetic moment of the nucleus, which can interact with external magnetic fields. In the context of nuclear magnetic resonance (NMR) spectroscopy and imaging, nuclear spin is crucial for understanding the magnetic properties of nuclei. By exploiting the nuclear spin properties of certain isotopes, such as hydrogen-1 (\(^1\)H) or carbon-13 (\(^{13}\)C), NMR allows for the detailed study of molecular structures, dynamics, and interactions, particularly in proteins and other biological molecules},
+  text={spin}
+}
+
+\newglossaryentry{nmr}{
+  name={Nuclear Magnetic Resonance (NMR)},
+  description={A spectroscopic technique that exploits the magnetic properties of certain atomic nuclei. NMR is used to determine the physical and chemical properties of atoms or molecules by measuring the interactions of nuclear spins when placed in an external magnetic field. This technique is widely applied in structural biology for determining the structure, dynamics, and interactions of proteins and nucleic acids. NMR is particularly valuable for studying molecules in solution and diverse temperatures, providing detailed information about molecular conformations and environments},
+  text={NMR}
+}
+
+% Define the glossary entry for Random Coil Index (RCI)
+\newglossaryentry{rci}{
+  name={Random Coil Index (RCI)},
+  description={A measure used to predict protein flexibility based on the chemical shift data obtained from Nuclear Magnetic Resonance (NMR) spectroscopy. The RCI provides a scale from 0 to 1, where a value closer to 0 indicates a highly ordered, less flexible region, and a value closer to 1 indicates a more flexible, disordered region, similar to a random coil. It is particularly useful in assessing the dynamic properties of proteins, such as identifying intrinsically disordered regions (IDRs)},
+  text={RCI}
+}
+
+% Define the glossary entry for S^2 Order Parameter
+\newglossaryentry{s2orderparameter}{
+  name={S\(^2\) Order Parameter},
+  description={A measure of the internal mobility of atoms within a molecule, particularly used in NMR spectroscopy to describe the degree of restriction in bond vector motion relative to an overall molecular frame. The S\(^2\) order parameter ranges from 0 to 1, where a value closer to 1 indicates a highly restricted, less flexible motion, and a value closer to 0 indicates greater flexibility. It is commonly used to study protein dynamics, providing insights into the rigidity and flexibility of specific regions within the protein structure},
+  text={S\(^2\)}}
+
+
+% Define the glossary entry for α-Helix
+\newglossaryentry{alphahelix}{
+  name={\ensuremath{\alpha}-Helix},
+  description={A common structural motif in proteins, characterised by a right-handed coil or spiral conformation. The $\alpha$-helix is stabilised by hydrogen bonds between the backbone carbonyl oxygen of one amino acid and the backbone amide hydrogen of an amino acid four residues earlier. This secondary structure provides limited flexibility and strength in protein folding and function},
+  text={\ensuremath{\alpha}-helix},
+  plural={\ensuremath{\alpha}-helices},
+}
+
+% Define the glossary entry for β-Sheet
+\newglossaryentry{betasheet}{
+  name={\ensuremath{\beta}-Sheet},
+  description={A common secondary structure in proteins, characterised by two or more extended polypeptide chains running alongside each other, forming a sheet-like structure. These sheets are stabilised by hydrogen bonds between the backbone carbonyl oxygen of one chain and the backbone amide hydrogen of the adjacent chain. $\beta$-Sheets can be parallel or antiparallel, depending on the relative direction of the polypeptide strands, They contribute to the overall stability and rigidity of proteins},
+  text={\ensuremath{\beta}-sheet},
+  plural={\ensuremath{\beta}-sheets},
+}
+
+% Define the glossary entry for Genotype
+\newglossaryentry{genotype}{
+  name={Genotype},
+  description={The genetic constitution of an individual organism. The genotype refers to the specific alleles or genetic makeup present in the DNA of an organism, which can determine particular traits or characteristics. In the context of genetics, the genotype is a key factor in inheritance and can influence the phenotype, or observable traits, of an organism},
+  text={genotype},
+}
+
+% % Define the glossary entry for Phenotype
+% \newglossaryentry{phenotype}{
+%   name={Phenotype},
+%   description={The set of observable characteristics or traits of an organism, such as its morphology, development, biochemical properties, and behaviour. The phenotype results from the expression of an organism's genotype in combination with environmental factors. Phenotypes can be influenced by multiple genes and are important for understanding how genetic variations lead to different physical manifestations in organisms},
+%   text={phenotype},}
+
+\newglossaryentry{phenotype}{
+  name={Phenotype},
+  description={The set of observable characteristics or traits of an organism, such as its morphology, development, biochemical properties, and behaviour. The phenotype results from the expression of an organism's genotype in combination with environmental factors. Phenotypes are important for understanding how genetic variations and environmental influences lead to different physical manifestations in organisms},
+  text={phenotype},
+  plural={phenotypic},
+}
+
+\newglossaryentry{xraycrystallography}{
+  name={X-ray Crystallography},
+  description={A technique used to determine the atomic and molecular structure of a crystal by measuring the angles and intensities of X-rays that are diffracted as they pass through the crystal lattice},
+  text={X-ray},
+}
+
+% Define the glossary entry for Protein Disorder
+\newglossaryentry{proteindisorder}{
+  name={Protein Disorder},
+  description={A characteristic of proteins or regions within proteins that lack a fixed or ordered three-dimensional structure under physiological conditions},
+  text={disorder},
+  plural={disordered},
+}
+
+% Define the glossary entry for Ramachandran Plot
+\newglossaryentry{ramachandranplot}{
+  name={Ramachandran Plot},
+  description={A graphical representation used to visualise dihedral angles \(\phi\) (phi) and \(\psi\) (psi) of amino acid residues in protein structures. The plot illustrates the allowed and disallowed regions of these angles based on steric hindrance and the overall stability of the protein structure},
+  text={Ramachandran plot},
+}
+
+% Define the glossary entry for Native Fold
+\newglossaryentry{nativefold}{
+  name={Native Fold},
+  description={The three-dimensional conformation of a protein that is biologically active and functional. The native fold is the result of the protein folding process, where the polypeptide chain assumes a specific, stable structure under physiological conditions. This structure is typically the most thermodynamically favourable form, characterised by a unique arrangement of secondary, tertiary, and sometimes quaternary structures},
+  text={native fold},
+}
+
+% Define the glossary entry for Physiological Conditions
+\newglossaryentry{physiologicalconditions}{
+  name={Physiological Conditions},
+  description={The specific set of environmental parameters, such as temperature, pH, ionic strength, and concentrations of various molecules, under which biological processes naturally occur within living organisms. This term can be further specified to refer to a specific organism's set of environmental parameters (\textit{e.g.} Human physiological conditions)},
+  text={physiological conditions},
+}
+
+% Define the glossary entry for Cryo-Electron Microscopy (cryo-EM)
+\newglossaryentry{cryoem}{
+  name={Cryo-Electron Microscopy (cryo-EM)},
+  description={A form of electron microscopy where biological specimens are cooled to cryogenic temperatures in vitreous ice to preserve their native structure. Cryo-EM allows for high-resolution imaging of biomolecules in their natural state without the need for crystallisation, making it particularly useful for studying the structures of large protein complexes, viruses, and other macromolecular assemblies},
+  text={cryo-EM}
+}
+
+% Define the glossary entry for Protein Domain
+\newglossaryentry{proteindomain}{
+  name={Protein Domain},
+  description={A distinct structural and functional unit of a protein that can evolve, function, and exist independently of the rest of the protein chain. Protein domains are typically composed of one or more secondary structures, such as $\alpha$-helices and $\beta$-sheets, that fold into a stable three-dimensional structure. Domains often have specific functions and can, to an extent, be modularly combined},
+  text={domain},
+  plural={domains},
+}
+
+\newglossaryentry{nma}{
+  name={Normal Mode Analysis (NMA)},
+  description={A computational technique used to study the dynamics of molecules, particularly proteins, by analysing their vibrational modes. NMA involves calculating the normal modes of a molecule, which represent the collective motions of atoms that occur with the lowest frequencies. These modes provide insights into the large-scale movements and intrinsic flexibility of proteins, helping to understand their function and interactions},
+  text={NMA},
+  plural={Normal Mode Analysis}
+}
+
+% Define the glossary entry for Molecular Dynamics (MD)
+\newglossaryentry{md}{
+  name={Molecular Dynamics (MD)},
+  description={A computational simulation method used to study the physical movements of atoms and molecules over time. MD allows the observation of time-dependent behaviour of molecular systems by solving Newton’s equations of motion for each atom},
+  text={MD},
+  plural={molecular dynamics},
+}
+
+% Define the glossary entry for van der Waals Forces
+\newglossaryentry{vandewaalsforces}{
+  name={van der Waals Forces},
+  description={Weak, non-covalent interactions between atoms or molecules that arise due to transient electric dipole moments. These forces include attractions and repulsions between molecules or parts of molecules that are not due to covalent bonds or electrostatic interactions},
+  text={van der Waals forces},
+}
+
+% Define the glossary entry for Electrostatic Interactions
+\newglossaryentry{electrostaticinteractions}{
+  name={Electrostatic Interactions},
+  description={Attractive or repulsive forces between charged particles, such as atoms, ions, or molecules, due to their electric charge. Electrostatic interactions are a type of non-covalent bond whose strength and direction depend on the magnitude and sign of the charges, as well as the distance between them and the dielectric environment},
+  text={electrostatic interactions},
+}
+
+% Define the glossary entry for Hydrogen Bonds
+\newglossaryentry{hydrogenbond}{
+  name={Hydrogen Bonds},
+  description={A type of non-covalent interaction that occurs when a hydrogen atom covalently bonded to an electronegative atom, such as oxygen or nitrogen, forms an electrostatic interaction with another electronegative atom. Hydrogen bonds are critical in stabilising the secondary, tertiary, and quaternary structures of proteins},
+  text={hydrogen bond},
+  plural={hydrogen bonds},
+}
+
+% Define the glossary entry for Disulfide Bonds
+\newglossaryentry{disulfidebond}{
+  name={Disulfide Bonds},
+  description={A type of covalent bond formed between the sulfur atoms of two cysteine residues within or between protein molecules. Disulfide bonds contribute to the stabilisation of a protein's tertiary and quaternary structures by creating a covalent link between different parts of a protein chain or between different protein chains},
+  text={disulfide bond},
+  plural={disulfide bonds},
+}
+
+% Define the glossary entry for Foldons
+\newglossaryentry{foldon}{
+  name={Foldons},
+  description={Discrete, cooperative structural units within a protein that fold independently and sequentially during the overall protein folding process. Each foldon typically represents a region of the protein that is energetically favourable and stable on its own, contributing to the hierarchical assembly of the full protein structure},
+  text={foldon},
+  plural={foldons},
+}
+
+% Define the glossary entry for Folding Frustration
+\newglossaryentry{foldingfrustration}{
+  name={Folding Frustration},
+  description={A concept in protein folding that describes the presence of conflicting interactions within a protein's sequence that prevent it from achieving a perfectly optimised structure. Folding frustration arises when local energy minima compete with the global energy minimum, causing the protein to sample multiple conformations before reaching its native state},
+  text={frustration},
+}
+
+\newglossaryentry{localminima}{
+  name={Local Minimum},
+  description={A point in the energy landscape of a system where the energy is lower than that of the surrounding points, but not necessarily the lowest possible energy state. In the context of protein folding, local minima represent conformations where the protein is somewhat stable but not in its most stable form},
+  text={local minimum},
+  plural={local minima}
+}
+
+% Define the glossary entry for Global Minima
+\newglossaryentry{globalminima}{
+  name={Global Minima},
+  description={The point in the energy landscape of a system where the energy is at its absolute lowest. In protein folding, the global minimum corresponds to the native state of the protein, which is the most stable, thermodynamically favourable state},
+  text={global minimum},
+  plural={global minima}
+}
+
+\newglossaryentry{montecarlosimulations}{
+  name={Monte Carlo Simulations},
+  description={A computational technique that uses random sampling to obtain numerical results and simulate the behaviour of complex systems. Monte Carlo simulations are employed to understand the impact of uncertainty and variability in models where analytical solutions are difficult or impossible to derive. Monte Carlo simulations are used to study the conformational space of proteins, predict molecular structures, and explore the thermodynamics of biomolecular interactions},
+  text={Monte Carlo simulation},
+  plural={Monte Carlo simulations},
+}
+
+% Define the glossary entry for Neural Networks
+\newglossaryentry{neuralnetworks}{
+  name={Neural Networks},
+  description={A class of machine learning models inspired by the structure and function of the human brain. Neural networks consist of interconnected layers of nodes (neurons) that process data by adjusting the weights of connections based on input data, allowing the network to learn patterns and make predictions. They are particularly effective in handling complex data with non-linear relationships},
+  text={neural network},
+  plural={neural networks}
+  }
+
+% Define the glossary entry for Deep Neural Networks
+\newglossaryentry{deepneuralnetworks}{
+  name={Deep Neural Networks (DNNs)},
+  description={A type of neural network with multiple layers between the input and output layers, allowing for the modelling of more complex data patterns and deeper representations. Deep neural networks typically contain several hidden layers that enable the network to learn increasingly abstract features from the data. This architecture makes DNNs particularly powerful for tasks requiring high-level feature extraction. The term ``deep'' refers to the depth of the network, or the number of layers it contains},
+  text={deep neural network},
+  plural={deep neural networks}
+}
+
+% Define the glossary entry for Chemical Shift
+\newglossaryentry{chemicalshift}{
+  name={Chemical Shift},
+  description={A measure used in Nuclear Magnetic Resonance (NMR) spectroscopy to describe the resonant frequency of a nucleus relative to a standard reference frequency. Chemical shifts provide information about the electronic environment surrounding a nucleus, as different chemical environments will cause nuclei to resonate at different frequencies from their reference frequencies. The chemical shift is typically reported in parts per million (ppm) and is calculated using the formula: \newline
+  \[
+  \delta = \frac{\nu_{\text{sample}} - \nu_{\text{reference}}}{\nu_{\text{reference}}} \times 10^6 \, \text{ppm}
+  \]
+  where:
+  \begin{itemize}
+      \item \(\nu_{\text{sample}}\) is the resonance frequency of the nucleus in the sample,
+      \item \(\nu_{\text{reference}}\) is the resonance frequency of the nucleus in a standard reference compound
+  \end{itemize}
+    The chemical shift reflects the shielding or deshielding effect caused by the electronic environment of the nucleus, providing insights into the structure and chemical properties of molecules},
+  text={chemical shift},
+  plural={chemical shifts},
+}
+
+% Define the glossary entry for Electron Microscopy
+\newglossaryentry{electronmicroscopy}{
+  name={Electron Microscopy},
+  description={A microscopy technique that uses a beam of electrons to create an image of a specimen, allowing for the visualisation of structures at the nanometer scale},
+  text={EM},
+}
+
+% Define the glossary entry for Correlated Spectroscopy (COSY)
+\newglossaryentry{cosy}{
+  name={Correlated Spectroscopy (COSY)},
+  description={A two-dimensional Nuclear Magnetic Resonance (NMR) spectroscopy technique that provides information about spin-spin coupling between nuclei within a molecule. COSY experiments generate a two-dimensional spectrum that shows correlations between protons that are coupled to each other through chemical bonds},
+  text={COSY}
+}
+
+% Define the glossary entry for Nuclear Overhauser Effect Spectroscopy (NOESY)
+\newglossaryentry{noesy}{
+  name={Nuclear Overhauser Effect Spectroscopy (NOESY)},
+  description={A two-dimensional Nuclear Magnetic Resonance (NMR) spectroscopy technique that provides information about spatial proximity between nuclei, typically protons, within a molecule. NOESY measures the Nuclear Overhauser Effect (NOE), which is a transfer of magnetisation between nuclei that are close in space (usually less than 5 Å apart), even if they are not bonded. NOESY is particularly useful for identifying the distances between atoms in a molecule, helping to elucidate its conformation and dynamics},
+  text= NOESY
+}
+
+% Define the glossary entry for Heteronuclear Single Quantum Coherence (HSQC)
+\newglossaryentry{hsqc}{
+  name={Heteronuclear Single Quantum Coherence (HSQC)},
+  description={A two-dimensional Nuclear Magnetic Resonance (NMR) spectroscopy technique that correlates the chemical shifts of nuclei of different types (typically Hydrogen and Carbon or Nitrogen) that are directly bonded to each other. HSQC experiments provide information about the scalar coupling between heteronuclei},
+  text=HSQC
+}
+
+\newglossaryentry{ppm}{
+  name={Parts Per Million (ppm)},
+  description={A unit of measurement used in Nuclear Magnetic Resonance (NMR) spectroscopy to express the chemical shift of nuclei. The chemical shift is reported in parts per million relative to a reference compound. The ppm scale provides a dimensionless quantity that describes the difference in resonance frequency of a nucleus due to its electronic environment},
+  text={ppm},
+  plural={parts per million},
+}
+
+% Define the glossary entry for Radiofrequency (RF)
+\newglossaryentry{radiofrequency}{
+  name={Radiofrequency (RF)},
+  description={A range of electromagnetic frequencies used in Nuclear Magnetic Resonance (NMR) spectroscopy to excite nuclear spins. When a sample is placed in a strong magnetic field, nuclei with magnetic moments align with or against the field. An RF pulse, matching the Larmor frequency—the specific frequency at which a particular nucleus precesses in a magnetic field—is applied to flip the spins into a higher energy state. The relaxation of these spins back to their lower energy state can be measured in the detection coil and Fourier-transformed to produced an NMR spectrum},
+  text={RF},
+  plural={radiofrequency},
+}
+
+% Define the glossary entry for Magnetic Field
+\newglossaryentry{magneticfield}{
+  name={Magnetic Field},
+  description={A region of space around a magnet, electric current, or moving charged particle where magnetic forces can be observed. Magnetic forces are the attractive or repulsive forces that arise between magnetic materials or between moving charged particles. In the context of Nuclear Magnetic Resonance (NMR) spectroscopy, a strong magnetic field is applied to a sample to align the magnetic moments of nuclei},
+  text={magnetic field},
+  plural={magnetic fields}
+}
+
+% Define the glossary entry for Machine Learning
+\newglossaryentry{machinelearning}{
+  name={Machine Learning},
+  description={A subset of artificial intelligence that involves the development of algorithms and statistical models that enable computers to learn from and make predictions or decisions based on data. Machine learning techniques are used to identify patterns, classify data, and predict outcomes without being explicitly programmed for specific tasks. In computational biology, machine learning is widely applied for analysing complex biological data},
+  text={ML},
+  plural={machine learning},
+}
+
+% Define the glossary entry for Supervised Learning
+\newglossaryentry{supervisedlearning}{
+  name={Supervised Learning},
+  description={A type of machine learning where the model is trained on a labeled dataset, meaning each training example has both input data and the correct output (label or target). The algorithm learns to map the input to the output based on these labeled examples, allowing it to make predictions or classifications on new, unseen data. Supervised learning is commonly used for tasks such as classification and regression},
+  text={supervised},
+  plural={supervised learning},
+}
+
+% Define the glossary entry for Unsupervised Learning
+\newglossaryentry{unsupervisedlearning}{
+  name={Unsupervised Learning},
+  description={A type of machine learning where the model is trained on an unlabeled dataset, meaning the data does not have any predefined labels or outcomes. The algorithm tries to learn the underlying patterns or structures in the data without any explicit output labels. Unsupervised learning is often used for clustering, dimensionality reduction, and association tasks},
+  text={unsupervised},
+  plural={unsupervised learning},
+}
+
+% Define the glossary entry for Multiple Sequence Alignment (MSA)
+\newglossaryentry{msa}{
+  name={Multiple Sequence Alignment (MSA)},
+  description={A sequence analysis technique used to align three or more biological sequences to identify regions of similarity that may indicate functional, structural, or evolutionary relationships. In an MSA, sequences are arranged in a matrix such that homologous residues are aligned in columns},
+  text={MSA},
+  plural={multiple sequence alignment},
+}
+
+% Define the glossary entry for Attention
+\newglossaryentry{attention}{
+  name={Attention},
+  description={A mechanism used in machine learning models that allows the model to focus on specific parts of the input data when making predictions. The attention mechanism assigns different weights to different parts of the input, enabling the model to prioritise important features or tokens and ignore less relevant ones. This approach improves the performance of models by allowing them to dynamically allocate resources to the most informative parts of the data. Attention is a fundamental component of transformer models and the Evoformers in AlphaFold2 and AlphaFold3},
+  text={attention},
+}
+
+% Define the glossary entry for Amino Acid
+\newglossaryentry{aminoacid}{
+  name={Amino Acid},
+  description={An organic molecule that serves as the building block of proteins. Amino acids contain both an amino group (\(-NH_2\)) and a carboxyl group (\(-COOH\)), along with a side chain (R group) that is specific to each amino acid. There are 20 standard amino acids that are encoded by the genetic code in living organisms, each contributing distinct chemical properties to the protein structure},
+  text={amino acid},
+  plural={amino acids},
+}
+
+% Define the glossary entry for pLDDT (Predicted Local Distance Difference Test)
+\newglossaryentry{plddt}{
+  name={pLDDT (Predicted Local Distance Difference Test)},
+  description={A confidence score produced by AlphaFold that indicates the reliability of the predicted atomic coordinates for a specific region of the protein structure. The pLDDT score ranges from 0 to 100, with higher scores indicating higher confidence in the predicted structure},
+  text={pLDDT},
+  plural={pLDDTs}
+  }
+
+
+% Define the glossary entry for PAE (Predicted Aligned Error)
+\newglossaryentry{pae}{
+  name={Predicted Aligned Error (PAE)},
+  description={A metric used by AlphaFold to represent the model's confidence in the relative positions of different parts of a protein structure. The PAE measures the expected error in the distance between residues when aligned in 3D space, providing a pairwise error estimate across the predicted structure. Lower PAE values indicate higher confidence in the relative positioning of the residues},
+  text={PAE},
+}
+
+% Define the glossary entry for Ligand
+\newglossaryentry{ligand}{
+  name={Ligand},
+  description={A molecule that binds specifically to a target molecule, often a protein, forming a complex that can result in a biological effect. Ligands can be small molecules, ions, peptides, or even larger proteins},
+  text={ligand},
+  plural={ligands},
+}
+
+% Define the glossary entry for Findability
+\newglossaryentry{findability}{
+  name={Findability},
+  description={A principle of the FAIR data and software guidelines that emphasises the importance of making data and software easily discoverable by both humans and computers. This includes the use of globally unique and persistent identifiers, rich metadata, and indexed information that can be searched through standard protocols},
+  text={findability},
+  plural={findable},
+}
+
+% Define the glossary entry for Accessibility
+\newglossaryentry{accessibility}{
+  name={Accessibility},
+  description={A principle of the FAIR data and software guidelines focused on ensuring that data and software can be accessed under well-defined conditions. Accessibility involves providing clear and standardised protocols for data access, ensuring that the data and software are available for use, and specifying any authentication or authorisation requirements. Even when data is restricted, the metadata should be accessible to enable discovery},
+  text={accessibility},
+  plural={accessible},
+}
+
+% Define the glossary entry for Interoperability
+\newglossaryentry{interoperability}{
+  name={Interoperability},
+  description={A principle of the FAIR data and software guidelines that aims to ensure that data and software can be integrated with other datasets and tools. Interoperability requires the use of standardised formats, vocabularies, and ontologies to facilitate the exchange and integration of data across different systems. It allows for seamless collaboration and the combination of datasets from different sources},
+  text={interoperability},
+  plural={interoperable},
+}
+
+% Define the glossary entry for Reusability
+\newglossaryentry{reusability}{
+  name={Reusability},
+  description={A principle of the FAIR data and software guidelines that focuses on maximising the value of data and software by making them available for future use and applications. Reusability requires clear licensing, detailed provenance information, and rich metadata to describe the context, conditions, and limitations of the data or software. By ensuring data and software can be reused by others, this principle promotes transparency, reproducibility, and efficiency in scientific research},
+  text={reusability},
+  plural={reusable},
+}
+
+% Define the glossary entry for Offspring
+\newglossaryentry{offspring}{
+  name={Offspring},
+  description={The biological descendants produced by one or more parents through the process of reproduction. Offspring inherit genetic material from their parents and can be produced either through sexual reproduction, which involves the combination of genetic material from two parents, or through asexual reproduction, where a single organism reproduces without the genetic contribution of another organism},
+  text={offspring},
+}
+
+\newglossaryentry{gene}{
+  name={Gene},
+  description={The fundamental unit of heredity, composed of DNA that encodes instructions for the synthesis of proteins or RNA molecules. Genes are responsible for determining the inherited characteristics of an organism. The expression of genes is regulated by various factors and can be influenced by environmental conditions},
+  text={gene},
+  plural={genes},
+}
+
+% Define the glossary entry for Gene Expression
+\newglossaryentry{geneexpression}{
+  name={Gene Expression},
+  description={The process by which the information encoded in a gene is used to synthesise a functional gene product: a protein or RNA molecule. Gene expression involves transcription, where DNA is transcribed into messenger RNA (mRNA), and translation, where mRNA is translated into a protein. Transcription of DNA into RNA can also regulate gene expression itself, for instance with MicroRNA (miRNA) or Small Interfering RNA (siRNA)},
+  text={gene expression},
+}
+
+% Define the glossary entry for Protein-Protein Interaction (PPI)
+\newglossaryentry{ppi}{
+  name={Protein-Protein Interaction (PPI)},
+  description={The physical contact and functional association between two or more protein molecules. PPIs can be transient or stable and are mediated by various types of non-covalent bonds such as hydrogen bonds, ionic bonds, Van der Waals forces, and hydrophobic interactions},
+  text={protein-protein interaction},
+  plural={protein-protein interactions},
+}
+
+% Define the glossary entry for B-Factor (X-ray Crystallography)
+\newglossaryentry{bfactor}{
+  name={B-Factor},
+  description={A measure of the atomic displacement or thermal motion of atoms within a crystal structure, also known as the temperature factor or Debye-Waller factor. In X-ray crystallography, B-factors provide information about the flexibility and dynamic behaviour of different regions of a molecule in crystallographic conditions. Higher B-factors indicate greater atomic displacement, suggesting increased flexibility or disorder, while lower B-factors suggest more rigid, well-ordered regions},
+  text={B-factor},
+  plural={B-factors},
+}
+
+
+
+
+
+% Define the glossary entry for Proton
+\newglossaryentry{proton}{
+  name={Proton},
+  description={A positively charged subatomic particle found in the nucleus of an atom. Protons, along with neutrons, make up the atomic nucleus and contribute to the atom's mass. The number of protons in the nucleus, known as the atomic number, defines the element and determines its chemical identity. The term ``proton'' is often used to refer to the hydrogen ion \( \text{H}^+ \), which is simply a hydrogen atom that has lost its single electron, leaving behind a single proton},
+  text={proton},
+  plural={protons},
+}
+
+% Define the glossary entry for Neutron
+\newglossaryentry{neutron}{
+  name={Neutron},
+  description={A subatomic particle with no electric charge (neutral) found in the nucleus of an atom. Neutrons, along with protons, make up the atomic nucleus and contribute to the atom's mass. The number of neutrons in an atom's nucleus can vary, resulting in different isotopes of an element},
+  text={neutron},
+  plural={neutrons},
+}
+
+% Define the glossary entry for Nucleus
+\newglossaryentry{nucleus}{
+  name={Nucleus},
+  description={The dense, central core of an atom that contains protons and neutrons. The nucleus is positively charged due to the presence of protons and contains nearly all of the atom's mass. The number of protons in the nucleus, known as the atomic number, defines the element, while the number of neutrons determines the isotope of the element. The interactions between protons and neutrons within the nucleus are governed by the strong nuclear force, which holds the nucleus together despite the repulsive electrostatic forces between the positively charged protons},
+  text={nucleus},
+  plural={nuclei},
+}
+
+% Define the glossary entry for Electron
+\newglossaryentry{electron}{
+  name={Electron},
+  description={A subatomic particle with a negative electric charge that orbits the nucleus of an atom. Electrons play a crucial role in chemical bonding and electrical conductivity. They are much lighter than protons and neutrons, and their distribution around the nucleus determines the atom's chemical properties and reactivity},
+  text={electron},
+  plural={electrons},
+}
+
+% Define the glossary entry for Folding Path
+\newglossaryentry{foldingpath}{
+  name={Folding Path},
+  description={The sequence of conformational changes that a polypeptide chain undergoes as it folds into its native three-dimensional structure. The folding path includes various intermediate states, such as partially folded conformations and folding intermediates, that occur during the transition from an unfolded or partially folded state to the fully folded, functional protein. Beyond the amino acid sequence itself, the folding path can be influenced by factors such as the presence of chaperones or the cellular environment},
+  text={folding path},
+  plural={folding paths},
+}
+
+% Define the glossary entry for Conformational Ensemble
+\newglossaryentry{conformationalensemble}{
+  name={Conformational Ensemble},
+  description={A collection of multiple conformations of a molecule, typically a protein or nucleic acid, that represent the range of structural states the molecule can adopt in solution. Conformational ensembles are often generated using experimental techniques like Nuclear Magnetic Resonance (NMR) spectroscopy or computational methods such as molecular dynamics simulations. These ensembles capture the dynamic nature of molecules, reflecting their flexibility, motion, and functional states},
+  text={conformational ensemble},
+  plural={conformational ensembles},
+}
+
+% Define the glossary entry for Application Programming Interface (API)
+\newglossaryentry{api}{
+  name={Application Programming Interface (API)},
+  description={A set of rules and protocols that allows different software applications to communicate with each other. An API defines the methods and data formats that applications can use to request and exchange information. APIs are essential for enabling interoperability between software systems, allowing developers to access specific functionalities of a service, application, or platform without needing to understand its internal implementation. APIs are widely used in web development, software integration, and cloud computing, facilitating the development of complex applications by leveraging existing services and data},
+  text={API},
+  plural={APIs},
+}
+
+% Define the glossary entry for Continuous Integration and Continuous Deployment (CI/CD)
+\newglossaryentry{cicd}{
+  name={Continuous Integration and Continuous Deployment (CI/CD)},
+  description={A set of practices in software development that aim to improve code quality, automate workflows, and streamline the delivery of software. \textbf{Continuous Integration (CI)} involves automatically integrating code changes from multiple contributors into a single software project, ensuring that new code commits are regularly built, tested, and merged to avoid integration issues. \textbf{Continuous Deployment (CD)} extends this by automatically deploying code changes to production environments after they pass automated tests, ensuring that new features and fixes are delivered to users quickly and reliably},
+  text={CI/CD},
+}
+
+% Define the glossary entry for Fold-Upon-Binding
+\newglossaryentry{folduponbinding}{
+  name={Fold-Upon-Binding},
+  description={A process in molecular biology where a protein or a peptide undergoes folding into a specific three-dimensional conformation upon interaction with a binding partner. This phenomenon is commonly observed in intrinsically disordered proteins (IDPs) or regions (IDRs), which can adopt a more ordered conformation when bound to a target},
+  text={fold-upon-binding},
+}
+
+
+% Define the glossary entry for Probability Density Function (PDF)
+\newglossaryentry{pdf}{
+  name={Probability Density Function (PDF)},
+  description={A mathematical function that describes the likelihood of a continuous random variable taking on a specific value. The probability density function provides a relative likelihood of the variable being near a particular value},
+  text={PDF},
+  plural={probability density function},
+}
+
+
+% Define the glossary entry for S^2_{RCI} (Random Coil Index Order Parameter)
+\newglossaryentry{s2rci}{
+  name={$S^2_{\text{RCI}}$ (Order Parameter Derived from Random Coil Index)},
+  description={A measure of protein backbone order derived from Nuclear Magnetic Resonance (NMR) chemical shifts. The $S^2_{\text{RCI}}$ value is derived from the Random Coil Index (RCI), and predicts the order parameter $S^2$ of a protein backbone using chemical shift data. This order parameter ranges from 0 to 1, where values close to 1 indicate a rigid or well-ordered region of the protein, while values closer to 0 suggest a flexible or disordered region},
+  text={$S^2_{RCI}$},
+}
+
+% Define the glossary entry for Hydrogen-Deuterium Exchange Mass Spectrometry (HDX-MS)
+\newglossaryentry{hdxms}{
+  name={Hydrogen-Deuterium Exchange Mass Spectrometry (HDX-MS)},
+  description={An analytical technique used to study protein structure, dynamics, and interactions by measuring the exchange of hydrogen atoms for deuterium in a protein's backbone amides. During the HDX process, proteins are exposed to deuterium oxide (D\(_2\)O), causing some of the amide hydrogens to exchange with deuterium. The rate and extent of this exchange depend on factors such as solvent accessibility and hydrogen bonding, providing insights into the protein's conformational flexibility and stability. The deuterium incorporation is then quantified using mass spectrometry, allowing inference of the structural dynamics and conformational changes of proteins under various conditions},
+  text={HDX-MS},
+}
+
+% Define the glossary entry for Allosterism
+\newglossaryentry{allosterism}{
+  name={Allosterism},
+  description={A regulatory mechanism in which the function of a protein is modified due to the binding of an effector molecule at a specific site other than the protein's active site. This binding event induces a conformational change in the protein, which can either enhance or inhibit its activity at the active site},
+  text={allosterism},
+  plural={allosteric},
+}
+
+% Define the glossary entry for Nuclear Overhauser Effect (NOE)
+\newglossaryentry{noe}{
+  name={Nuclear Overhauser Effect (NOE)},
+  description={A phenomenon in Nuclear Magnetic Resonance (NMR) spectroscopy where the relaxation of one nuclear spin affects the relaxation of another nearby nuclear spin through dipole-dipole interactions. The NOE provides information about the spatial proximity of atoms within a molecule, typically within 5 Å},
+  text={NOE},
+}
+
+% Define the glossary entry for Residual Dipolar Couplings (RDCs)
+\newglossaryentry{rdcs}{
+  name={Residual Dipolar Couplings (RDCs)},
+  description={A type of NMR spectroscopy measurement that provides information about the average orientations of internuclear vectors in molecules relative to an external magnetic field. This technique is particularly useful for studying the relative orientations of domains in multidomain proteins and the overall shape of macromolecular complexes},
+  text={RDCs},
+  plural={residual dipolar couplings},
+}
+
+% Define the glossary entry for NVT Ensemble
+\newglossaryentry{nvtensemble}{
+  name={NVT Ensemble},
+  description={A statistical ensemble used in molecular dynamics simulations and statistical mechanics where the Number of particles (N), Volume (V), and Temperature (T) are kept constant. The system is typically isolated, with no exchange of particles with the environment, making it suitable for modelling closed systems. The temperature is maintained using a thermostat, which ensures that the kinetic energy of the particles corresponds to the desired temperature},
+  text={NVT ensemble},
+  plural={NVT ensembles},
+}
+
+% Define the glossary entry for NPT Ensemble
+\newglossaryentry{nptensemble}{
+  name={NPT Ensemble},
+  description={A statistical ensemble used in molecular dynamics simulations and statistical mechanics where the Number of particles (N), Pressure (P), and Temperature (T) are kept constant. Also known as the isothermal-isobaric ensemble, the NPT ensemble allows the volume of the system to fluctuate in response to changes in pressure and temperature, making it ideal for simulating systems that can exchange heat and perform work on the surroundings. In NPT simulations, both the temperature and pressure are controlled using algorithms such as thermostats and barostats, which adjust the kinetic energy of the particles and the system volume to maintain the desired conditions},
+  text={NPT ensemble},
+  plural={NPT ensembles},
+}
+
+% Define the glossary entry for Bootstrap (Sampling)
+\newglossaryentry{bootstrap}{
+  name={Bootstrapping Sampling},
+  description={A statistical resampling technique used to estimate the distribution of a sample statistic by repeatedly sampling, with replacement, from the original data. The bootstrap method allows for the approximation of the sampling distribution of almost any statistic (mean, variance, etc.) without making assumptions about the underlying population distribution. It is widely used for estimating confidence intervals, assessing the variability of a statistic, and performing hypothesis testing, especially in situations where traditional parametric assumptions may not hold or the sample size is small},
+  text={bootstrap},
+  plural={bootstrapping},
+}
+
+% Define the glossary entry for Sliding Window Sampling
+\newglossaryentry{slidingwindow}{
+  name={Sliding Window Sampling},
+  description={A data sampling technique used to analyse and process data in a sequential manner by moving a fixed-size window across the dataset. At each step, the window captures a subset of the data, which is then analysed or processed. The window slides forward by a certain step size (which can be one or more data points), and the process is repeated until the end of the dataset is reached. Sliding window sampling is commonly used in time series analysis},
+  text={sliding window},
+}
+
+\newglossaryentry{ppii}{
+  name={Polyproline II (PPII) Helix},
+  description={A type of secondary structure in proteins characterised by a left-handed helical conformation, which is often adopted by sequences rich in the amino acid proline. The PPII helix is defined by a repeating dihedral angle pattern and has an extended structure with three residues per turn and a pitch of approximately 9.3 Å. Unlike $\alpha$-helices or $\beta$-sheets, the PPII helix lacks hydrogen bonds between the backbone amides, making it more flexible and less stable. PPII helices are commonly found in regions of proteins that interact with other molecules, such as in collagen, signal transduction proteins, and protein-protein interactions},
+  text={ppII},
+}
+
+% Define the glossary entry for Proteome
+\newglossaryentry{proteome}{
+  name={Proteome},
+  description={The complete set of proteins that are expressed by a genome, cell, tissue, or organism at a specific time under defined conditions.  The proteome is dynamic, varying between different cells, tissues, developmental stages, and in response to environmental factors, diseases, and treatments},
+  text={proteome},
+}
+
+% Define the glossary entry for Docker Image
+\newglossaryentry{dockerimage}{
+  name={Docker Image},
+  description={A lightweight, standalone, and executable software package that includes everything needed to run a piece of software, including the code, runtime, libraries, environment variables, and configuration files. Docker images are used in containerisation to create isolated environments that ensure consistent and reproducible software behaviour across different computing environments. They serve as templates for creating Docker containers, which are instances of Docker images that run as isolated processes on a host operating system},
+  text={Docker image},
+  plural={Docker images},
+}
+
+% Define the glossary entry for Galaxy Europe
+\newglossaryentry{galaxyeurope}{
+  name={Galaxy Europe},
+  description={A publicly accessible instance of the Galaxy Project, a web-based platform designed for data-intensive biomedical research. Galaxy Europe provides a comprehensive suite of bioinformatics tools and workflows that enable researchers to analyse and visualise large datasets without needing to install software locally. Hosted and maintained by European institutions, Galaxy Europe offers high-performance computing resources, training materials, and community support to facilitate reproducible and accessible scientific research. It supports a wide range of applications and is particularly valuable for collaborative research, allowing users to share data and workflows easily},
+  text={Galaxy Europe},
+}
+
+% Define the glossary entry for Nextflow
+\newglossaryentry{nextflow}{
+  name={Nextflow},
+  description={An open-source workflow management system designed to enable scalable and reproducible scientific data analysis. It allows the definition of workflows using a simple scripting language that integrates with various software tools and libraries. Nextflow also supports containerisation technologies like Docker, ensuring that workflows are environment-independent and reproducible},
+  text={Nextflow},
+}
+
+% Define the glossary entry for Aggregation
+\newglossaryentry{aggregation}{
+  name={Aggregation},
+  description={The process by which proteins self-associate into larger complexes or aggregates. Protein aggregation can occur naturally as part of cellular processes, such as the formation of protein complexes and cellular structures. However, it can also occur abnormally, leading to the formation of insoluble aggregates that are often associated with diseases. Pathological protein aggregation is a hallmark of various neurodegenerative diseases, including Alzheimer's, Parkinson's, and Huntington's diseases, where misfolded proteins aggregate into amyloid fibrils or plaques},
+  text={aggregation},
+}
+
+% Define the glossary entry for Post-Translational Modifications (PTMs)
+\newglossaryentry{ptms}{
+  name={Post-Translational Modifications (PTMs)},
+  description={Chemical modifications that occur to proteins after their synthesis. These modifications can involve the addition of functional groups, such as phosphorylation, glycosylation, ubiquitination, methylation, acetylation, and lipidation, or proteolytic cleavage},
+  text = {PTMs},
+  plural={post-translational modifications},
+}
+
+% Define the glossary entry for Apo State
+\newglossaryentry{apostate}{
+  name={Apo State},
+  description={The conformation of a protein when it is not bound to a ligand or cofactor. In this unbound or ligand-free state, the protein may have different structural and dynamic properties compared to when it is bound to a ligand or cofactor},
+  text={apo},
+  plural={apo state},
+}
+
+% Define the glossary entry for Holo State
+\newglossaryentry{holostate}{
+  name={Holo State},
+  description={The conformation of a protein when it is bound to a ligand or cofactor. In this bound state, the protein often undergoes conformational changes that can activate or inhibit its function, stabilise its structure, or facilitate interactions with other molecules},
+  text={holo},
+  plural={holo state},
+}
+
+% Define the glossary entry for Elastic Network Model (ENM)
+\newglossaryentry{enm}{
+  name={Elastic Network Model (ENM)},
+  description={A simplified computational model used to study the dynamics of macromolecules, such as proteins and nucleic acids. The Elastic Network Model represents a protein or nucleic acid structure as a network of nodes connected by springs, which mimic the elastic properties of the molecular structure. By applying the harmonic potential to these springs, ENMs can predict the collective movements and flexibility of biomolecules},
+  text={ENM},
+  plural={elastic network models},
+}
+
+% Define the glossary entry for Boltzmann Constant
+\newglossaryentry{boltzmannconstant}{
+  name={Boltzmann Constant},
+  description={A fundamental physical constant that relates the average kinetic energy of particles in a gas with the temperature of the gas. The Boltzmann constant (\(k_B\)) is a bridge between macroscopic and microscopic physics, linking thermodynamic quantities to the energy of microscopic particles. It is a key constant in statistical mechanics, defining the relationship between temperature and energy in equations like the Boltzmann distribution and the ideal gas law. The value of the Boltzmann constant is approximately \(1.380649 \times 10^{-23} \, \text{J/K}\) (joules per kelvin)},
+  text={Boltzmann constant},
+}
+
+\newglossaryentry{cartesianspace}{
+  name={Cartesian Space},
+  description={A coordinate system used to describe the positions of points in space using Cartesian coordinates, which are defined as perpendicular distances from a common origin to specific points along orthogonal axes. In a three-dimensional Cartesian space, each point is uniquely specified by three coordinates: \(x\), \(y\), and \(z\), which represent its distance from three mutually perpendicular axes},
+  text={Cartesian},
+  plural={Cartesian space},
+}
+
+% Define the glossary entry for Dihedral Space
+\newglossaryentry{dihedralspace}{
+  name={Dihedral Space},
+  description={A coordinate system used to describe the conformations of molecules in terms of dihedral angles, which are the angles between two intersecting planes formed by four atoms. In dihedral space, molecular conformations are represented by a series of dihedral angles that describe the rotation around bonds},
+  text={dihedral space},
+}
+
+
+% Define the glossary entry for Mann-Whitney U Test (Two-Sided)
+\newglossaryentry{mannwhitneyutest}{
+  name={Mann-Whitney U Test (Two-Sided)},
+  description={A nonparametric statistical test used to determine whether there is a significant difference between the distributions of two independent samples. Unlike the parametric t-test, which assumes normal distribution of the data, the Mann-Whitney U test makes no assumptions about the underlying distribution of the data, making it suitable for ordinal data or data that do not meet normality assumptions. The test ranks all the data from both groups together, then compares the sum of ranks between the two groups. The two-sided version of the test assesses whether the distributions of the two samples differ in either direction, meaning it tests for any difference in the distributions, regardless of directionality},
+  text={Mann-Whitney U test (two-sided)},,
+  plural={Mann-Whitney two-sided U test},
+}
+
+% Define the glossary entry for Artificial Intelligence (AI)
+\newglossaryentry{artificialintelligence}{
+  name={Artificial Intelligence (AI)},
+  description={A branch of computer science focused on creating systems or machines that can perform tasks typically requiring human intelligence. These tasks include reasoning, learning, problem-solving, perception, natural language understanding, and decision-making. Often confused with Machine Learning, AI englobes Machine Learning as well as rule-based modelling},
+  text={AI},
+  plural={artificial intelligence},
+}
+
+% Define the glossary entry for Primary Structure
+\newglossaryentry{primarystructure}{
+  name={Primary Structure},
+  description={The linear sequence of amino acids in a protein or peptide chain. The primary structure is determined by the genetic code and is held together by peptide bonds between the amino acids. It defines the specific order of amino acids from the N-terminus (amino end) to the C-terminus (carboxyl end)},
+  text={primary structure},
+}
+
+% Define the glossary entry for Secondary Structure
+\newglossaryentry{secondarystructure}{
+  name={Secondary Structure},
+  description={The local folded structures that form within a polypeptide due to interactions between atoms of the backbone. The most common types of secondary structures are $\alpha$-helices and $\beta$-sheets, which are stabilised by hydrogen bonds between the carbonyl oxygen of one amino acid and the amide hydrogen of another. Secondary structures contribute to the protein's overall 3D shape, stability, and function},
+  text={secondary structure},
+}
+
+% Define the glossary entry for Tertiary Structure
+\newglossaryentry{tertiarystructure}{
+  name={Tertiary Structure},
+  description={The overall three-dimensional shape of a single protein molecule. The tertiary structure is formed by the folding of the secondary structures into a compact globular form, stabilised by various interactions, including hydrophobic interactions, hydrogen bonds, disulfide bonds, and ionic bonds between the side chains of amino acids. This level of structure determines the protein's functional properties and specificity for interactions with other molecules},
+  text={tertiary structure},
+}
+
+% Define the glossary entry for Quaternary Structure
+\newglossaryentry{quaternarystructure}{
+  name={Quaternary Structure},
+  description={The arrangement and interaction of multiple protein subunits within a multi-subunit complex. Quaternary structure applies to proteins that consist of more than one polypeptide chain, known as subunits. These subunits can be identical or different and are held together by a variety of interactions, including non-covalent interactions like hydrogen bonds, hydrophobic interactions, and ionic bonds, as well as covalent bonds such as disulfide bonds. An example is insulin, where the quaternary structure is stabilised by disulfide bonds between its polypeptide chains},
+  text={quaternary structure},
+}

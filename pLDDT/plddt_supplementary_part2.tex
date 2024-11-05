@@ -1,0 +1,398 @@
+% \chapter*{Supplementary information chapter \ref{chapter:plddt}: \\NMA-derived}
+\chapter*{Supplementary information chapter 6: \\NMA-derived}
+
+
+\newpage
+
+On the $S_{\text{RCI}}^{2}$ dataset of 762 proteins, WEBnma was carried out on the 762 AlphaFold2 models. Therefore, based on WEBnma output, the final dataset consists of 762 AlphaFold2 models. The predicted RMSF values of each coil residue in all 762 proteins are shown in (\suppfigref{fig:plddt_sup:sup12}). The supplementary figure shows some extreme RMSF values in Flexible-pLDDT regions. As explained in the main text, these extreme values can originate artificially from loosely packed stretches in the protein structure. We have therefore adapted the RMSF analysis to reduce the artificial RMSF outliers. As shown in the folFlexibleing (section Truncation criterion), the N- and C-terminal tails from AlphaFold2 models were truncated. The truncation criterion is based on the number of C$\alpha$ contacts. The final number of truncated proteins in the dataset was 755, and the remaining 7 did not require cutting of termini. Subsequently, normal mode analysis with WEBnma was again performed on these 755 truncated models, and the RMSF was recomputed. The RMSF results are shown for 762 proteins, including both the 755 truncated models and the 7 models that did not require termini cutting (referred to as truncated $S_{\text{RCI}}^{2}$ dataset). Apart from (\suppfigref{fig:plddt_sup:sup12}, \suppfigref{fig:plddt_sup:sup13}, and \supptableref{tab:plddt_sup:suptable4}) all figures and data in the main document and SI contain the RMSF of truncated $S_{\text{RCI}}^{2}$ dataset. \suppfigref{fig:plddt_sup:sup13} shows the effect of the truncation by comparing the RMSF before truncation and the RMSF after truncation.
+\newpage
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{pLDDT//plddt_figures//supplementary_bhawna/supfig12.pdf}
+\caption{\textbf{Comparison of pLDDT and RMSF in coils.} pLDDT vs RMSF of 762 proteins for coil residues before truncation. The colour bar represents the Gaussian kernel density estimate of the dataset. The red vertical lines divide the dataset into Rigid pLDDT ($\geq 80$), Ambiguous ($60 \leq \text{pLDDT} < 80$) and Flexible ($< 60$) pLDDT regions.}
+    \label{fig:plddt_sup:sup12}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pLDDT//plddt_figures//supplementary_bhawna/supfig13.pdf}
+    \caption{\textbf{Comparison of pLDDT and RMSF in coils.} RMSF vs pLDDT of amino acid residues exhibiting coils in non-truncated (A, C, E) and truncated (B, D, F) AlphaFold2 structures in Flexible-pLDDT (A, B), Ambiguous-pLDDT (C, D), and c) Rigid-pLDDT (E, F) regions. Only the amino acids that are present in both the non-truncated and truncated AlphaFold2 models are included.}
+    \label{fig:plddt_sup:sup13}
+\end{figure}
+
+% S Table 4
+
+\begin{table}[H]
+\small
+\centering
+\caption{\textbf{RMSF values of are grouped according to pLDDT in Flexible-pLDDT, Ambiguous-pLDDT and Rigid-pLDDT for AlphaFold2 models before truncation.} The table reports the minimum, maximum, mean, and standard deviation for each group.}
+\label{tab:plddt_sup:suptable4}
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+\begin{tabular}[c]{@{}c@{}}Secondary\\ structure\end{tabular} & pLDDT range & min & max & mean & std \\ \midrule
+Coil           & Flexible  & 0.22  & 184.99 & 6.28 & 5.83 \\
+Strand         & Flexible  & 33.97 & 1.58   & 1.84 & 1.66 \\
+$\alpha$-Helix & Flexible  & 29.67 & 1.35   & 1.49 & 2.15 \\
+Turn           & Flexible  & 24.68 & 1.57   & 1.87 & 2.74 \\
+310-Helix      & Flexible  & 32.52 & 1.63   & 1.91 & 3.29 \\
+Bridge         & Flexible  & 30.04 & 1.37   & 1.55 & 2.50 \\
+\arrayrulecolor[gray]{0.8}\hline
+Coil           & Ambiguous  & 29.29 & 1.48   & 1.78 & 5.16 \\
+Strand         & Ambiguous  & 0.23  & 21.63  & 1.49 & 1.6  \\
+$\alpha$-Helix & Ambiguous  & 0.18  & 23.61  & 2.02 & 2.37 \\
+Turn           & Ambiguous  & 0.20  & 33.05  & 2.04 & 2.56 \\
+310-Helix      & Ambiguous  & 0.21  & 27.39  & 2.11 & 3.07 \\
+Bridge         & Ambiguous  & 0.26  & 13.06  & 1.66 & 2.04 \\
+\arrayrulecolor[gray]{0.8}\hline
+Coil           & Rigid & 0.15  & 33.97  & 1.58 & 1.84 \\
+Strand         & Rigid & 0.15  & 29.67  & 1.35 & 1.49 \\
+$\alpha$-Helix & Rigid & 0.14  & 24.68  & 1.57 & 1.87 \\
+Turn           & Rigid & 0.15  & 32.52  & 1.63 & 1.91 \\
+310-Helix      & Rigid & 0.20  & 30.04  & 1.37 & 1.55 \\
+Bridge         & Rigid & 0.15  & 29.29  & 1.48 & 1.78 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+
+
+\subsection*{Truncation criterion}\label{section:supNMA:truncation}
+
+For determining N- and/or C-termini truncation, the C$\alpha$ contacts were assessed within a 10 Å (1 nm) cut-off for each protein in the dataset. In proteins, helices and strands consistently exhibited significant contacts, surpassing approximately 13 contacts per residue across the dataset with Flexibleer RMSF ($<20$ Å) as shown in (\suppfigref{fig:plddt_sup:sup14}). An example is shown in \suppfigref{fig:plddt_sup:sup15}. In contrast, coils showed fewer than 13 contacts per residue and showed very Rigid RMSF ($>50$ Å). Thus, a 13-contact cutoff was selected to truncate the termini.
+FolFlexibleing this criterion, all first residues with fewer than 13 contacts were cut both in the N-terminal and C-terminal. Consequently, if the first residue of an N- or C-terminal has $\geq 13$ contacts, this terminal was not truncated. Only the termini were truncated, so an accidental Flexible contact region in the core of the protein would not get cut.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pLDDT//plddt_figures//supplementary_bhawna/supfig14.pdf}
+    \caption{Mean number of contacts Mean number of C$\alpha$ contacts within a 10 Å cut-off for first 30 residues depicting N-terminal (A) and last 30 residues depicting C-terminal (B) averaged over all 762 proteins. The black line represents the mean contacts, with the standard deviation shown as grey shaded area.}
+    \label{fig:plddt_sup:sup14}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pLDDT//plddt_figures//supplementary_bhawna/supfig15.pdf}
+    \caption{\textbf{Number of C$\alpha$ contacts profile.} (A) and RMSF profile (B) of Q92688. The red dashed line in A represents the contact cut-off (13 contacts) and red dashed line in B represents the RMSF at contact cut-off. The 3D structure of Q92688 is shown in C with a red Rigidlighted region for truncation.}
+    \label{fig:plddt_sup:sup15}
+\end{figure}
+
+\subsection*{Additional analysis of RMSF and correlation with pLDDT or $S_{\text{RCI}}^{2}$}
+
+The RMSF values for the dataset with truncated dataset are further analysed (now 762 proteins) according to their secondary structure element as predicted by STRIDE.
+
+The six considered secondary structure elements are coil, strand, $\alpha$-helix, turn, 310-helix, and bridge. The tables report the minimum, maximum, mean, and standard deviation for the RMSF values in each secondary structure group. \supptableref{tab:plddt_sup:suptable5} gives three columns according to the pLDDT value as given by AlphaFold2: Flexible-pLDDT, Ambiguous-pLDDT, and Rigid-pLDDT. \supptableref{tab:plddt_sup:suptable6} gives three columns according to the $S_{\text{RCI}}^{2}$ value as included in the truncated $S_{\text{RCI}}^{2}$ dataset: flexible, ambiguous, and rigid.
+
+Next, the Pearson correlation coefficient between the RMSF values and the pLDDT values were computed in each group (Flexible-pLDDT, Ambiguous-pLDDT, and Rigid-pLDDT) in (\supptableref{tab:plddt_sup:suptable7}). Moreover, the Pearson correlation coefficient between RMSF and pLDDT was computed, without considering the subgroups of pLDDT (\supptableref{tab:plddt_sup:suptable7}). Similarly, the Pearson correlation coefficient between RMSF and $S_{\text{RCI}}^{2}$ was computed for each group (flexible, ambiguous, and rigid), and without considering subgroups of $S_{\text{RCI}}^{2}$ (\supptableref{tab:plddt_sup:suptable8}). For both RMSF and pLDDT, RMSF and $S_{\text{RCI}}^{2}$, the Pearson correlation was calculated for each secondary structure group, and without the classification of secondary structure.
+Next, The Pearson correlation coefficient between the RMSF values and $S_{\text{RCI}}^{2}$ can also be computed for each individual AlphaFold2 and NMR model in the truncated $S_{\text{RCI}}^{2}$ dataset. This is reported as a histogram in \suppfigref{fig:plddt_sup:sup18} (blue) using the RMSF values of the 746 AlphaFold2 models and \suppfigref{fig:plddt_sup:sup18} (yellow) using the RMSF values of 14,069 NMR models (as explained in the results section 6.3.5.2).
+% \ref{section:plddt:s2_nma_nmr}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pLDDT//plddt_figures//supplementary_bhawna/supfig16.pdf}
+    \caption{\textbf{Comparison of pLDDT and RMSF.} RMSF values versus pLDDT value of each amino acid, visualised with a Gaussian kernel estimator for $S_{\text{RCI}}^{2}$ data set. One subplot for each secondary structure element: A) coil (N = 105,172), B) strand (N = 54,786), C) $\alpha$-helix (N = 109,639), D) turn (N = 58,328), E) 310-helix (N = 7,931), and F) bridge (N = 2,445), where N represents number of amino acid residues. The red vertical lines divide the dataset into Rigid pLDDT ($\geq 80$), Ambiguous ($60 \leq \text{pLDDT} < 80$) and Flexible ($< 60$) pLDDT regions.}
+    \label{fig:plddt_sup:sup16}
+\end{figure}
+
+% S Table 5
+
+\begin{table}[H]
+\small
+\centering
+\caption{\textbf{RMSF values are grouped according to pLDDT in Flexible-pLDDT, Ambiguous-pLDDT and Rigid-pLDDT.} The table reports the minimum, maximum, mean, and standard deviation for each group.}
+\label{tab:plddt_sup:suptable5}
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+\begin{tabular}[c]{@{}c@{}}Secondary\\ structure\end{tabular} & pLDDT range & min & max & mean & std \\ \midrule
+Coil           & Low  & 0.22 & 49.24 & 5.65 & 4.43 \\
+Strand         & Low  & 0.24 & 8.82  & 1.89 & 1.86 \\
+$\alpha$-Helix & Low  & 0.25 & 27.35 & 1.87 & 1.83 \\
+Turn           & Low  & 0.20 & 32.16 & 2.16 & 2.03 \\
+310-Helix      & Low  & 0.25 & 27.95 & 2.08 & 3.19 \\
+Bridge         & Low  & 0.22 & 22.78 & 1.89 & 3.00 \\
+\arrayrulecolor[gray]{0.8}\hline
+Coil           & Mid  & 0.21 & 26.71 & 1.89 & 2.18 \\
+Strand         & Mid  & 0.21 & 12.6  & 1.35 & 1.46 \\
+$\alpha$-Helix & Mid  & 0.18 & 27.26 & 1.84 & 2.26 \\
+Turn           & Mid  & 0.15 & 29.68 & 1.74 & 2.16 \\
+310-Helix      & Mid  & 0.21 & 32.8  & 1.89 & 2.78 \\
+Bridge         & Mid  & 0.26 & 13.43 & 1.34 & 1.53 \\
+\arrayrulecolor[gray]{0.8}\hline
+Coil           & High & 0.14 & 30.48 & 1.27 & 1.29 \\
+Strand         & High & 0.14 & 20.28 & 1.11 & 1.13 \\
+$\alpha$-Helix & High & 0.13 & 25.39 & 1.38 & 1.65 \\
+Turn           & High & 0.13 & 20.95 & 1.33 & 1.36 \\
+310-Helix      & High & 0.16 & 17.96 & 1.14 & 1.16 \\
+Bridge         & High & 0.15 & 14.87 & 1.20 & 1.16 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+% S Table 6
+\begin{table}[H]
+\small
+\centering
+\caption{\textbf{RMSF values are grouped according to $S_{\text{RCI}}^{2}$ values in flexible (< .7), ambiguous (0.7-0.8), and rigid(> 0.8).} The table reports the maximum, maximum, mean, and standard deviation for each group.}
+\label{tab:plddt_sup:suptable6}
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+\begin{tabular}[c]{@{}c@{}}Secondary\\ structure\end{tabular} & $S_{\text{RCI}}^{2}$ & min & max & mean & std \\ \midrule
+Coil           & Flexible  & 0.21 & 25.06 & 2.43 & 2.60 \\
+Strand         & Flexible  & 0.23 & 15.44 & 1.38 & 1.66 \\
+$\alpha$-Helix & Flexible  & 0.23 & 20.99 & 2.04 & 2.06 \\
+Turn           & Flexible  & 0.19 & 22.01 & 1.89 & 1.79 \\
+310-Helix      & Flexible  & 0.23 & 11.44 & 1.70 & 1.94 \\
+Bridge         & Flexible  & 0.29 & 9.20  & 1.52 & 1.49 \\
+\arrayrulecolor[gray]{0.8}\hline
+Coil           & Ambiguous  & 0.20 & 16.88 & 1.40 & 1.58 \\
+Strand         & Ambiguous  & 0.20 & 15.16 & 1.28 & 1.33 \\
+$\alpha$-Helix & Ambiguous  & 0.21 & 16.51 & 1.56 & 1.72 \\
+Turn           & Ambiguous  & 0.20 & 17.37 & 1.52 & 1.70 \\
+310-Helix      & Ambiguous  & 0.21 & 10.54 & 1.45 & 1.45 \\
+Bridge         & Ambiguous  & 0.22 & 10.09 & 1.27 & 1.34 \\
+\arrayrulecolor[gray]{0.8}\hline
+Coil           & Rigid & 0.19 & 14.74 & 1.30 & 1.47 \\
+Strand         & Rigid & 0.17 & 14.77 & 1.13 & 1.25 \\
+$\alpha$-Helix & Rigid & 0.15 & 19.04 & 1.23 & 1.35 \\
+Turn           & Rigid & 0.20 & 14.70 & 1.35 & 1.40 \\
+310-Helix      & Rigid & 0.21 & 11.74 & 1.21 & 1.32 \\
+Bridge         & Rigid & 0.21 & 14.87 & 1.37 & 1.73 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pLDDT//plddt_figures//supplementary_bhawna/supfig17.pdf}
+    \caption{\textbf{Comparison of $S_{\text{RCI}}^{2}$ and RMSF.} RMSF values versus $S_{\text{RCI}}^{2}$ value of each amino acid, visualised with a Gaussian kernel estimator for truncated $S_{\text{RCI}}^{2}$ data set. One subplot for each secondary structure element: A) coil (N = 11,634), B) strand (N = 18,640), C) $\alpha$-helix (N = 25,861), D) turn (N = 14,759), E) 310-helix (N = 2,250), and F) bridge (N = 670), where N represents number of amino acid residues. The green vertical lines divide the dataset into flexible ($<0.70$), ambiguous ($0.70 - 0.80$), and rigid ($\geq 0.80$) regions.}
+
+    \label{fig:plddt_sup:sup17}
+\end{figure}
+
+% S Table 7
+
+
+\begin{table}[H]
+\centering
+\small
+\caption{Pearson correlation coefficients and p-values are provided for RMSF and pLDDT. These correlations are analysed as well as for the full range of pLDDT, with and without the classification of secondary structure elements (all SS).}
+\label{tab:plddt_sup:suptable7}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Subset                         & Secondary Structure & \multicolumn{1}{c}{Pearson} & \multicolumn{1}{c}{p-value}  \\ \midrule
+Flexible-pLDDT                      & Coil                & 0.16                        & 0.00                         \\
+Ambiguous-pLDDT                      & Coil                & -0.17                       & 8.98 x 10$^{\text{-55}}$     \\
+Rigid-pLDDT                     & Coil                & -0.16                       & 1.90 x 10$^{\text{-157}}$    \\
+All pLDDT                      & Coil                & -0.43                       & 0.00                         \\
+\arrayrulecolor[gray]{0.8}\hline
+Flexible-pLDDT                      & Strand              & 0.21                        & 4.62 x 10$^{\text{-6}}$      \\
+Ambiguous-pLDDT                      & Strand              & -0.01                       & 4.51 x 10$^{\text{-1}}$      \\
+Rigid-pLDDT                     & Strand              & -0.12                       & 8.7 x 10$^{\text{-165}}$     \\
+All pLDDT                      & Strand              & -0.12                       & 1.07 x 10$^{\text{-185}}$    \\
+\arrayrulecolor[gray]{0.8}\hline
+Flexible-pLDDT                      & $\alpha$-helix      & 0.16                        & 9.41 x 10$^{\text{-36}}$     \\
+Ambiguous-pLDDT                      & $\alpha$-helix      & -0.04                       & 9.19 x 10$^{\text{-7}}$      \\
+Rigid-pLDDT                     & $\alpha$-helix      & -0.10                       & 1.28 x 10$^{\text{-183}}$    \\
+All pLDDT                      & $\alpha$-helix      & -0.11                       & 4.49 x 10$^{\text{-319}}$    \\
+\arrayrulecolor[gray]{0.8}\hline
+Flexible-pLDDT                      & Turn                & 0.07                        & 9.71 x 10$^{\text{-15}}$     \\
+Ambiguous-pLDDT                      & Turn                & -0.04                       & 1.93 x 10$^{\text{-6}}$      \\
+Rigid-pLDDT                     & Turn                & -0.16                       & 7.83 x 10$^{\text{-208}}$    \\
+All pLDDT                      & Turn                & -0.20                       & 0.00                         \\
+\arrayrulecolor[gray]{0.8}\hline
+Flexible-pLDDT                      & 3$_{10}$-helix      & 0.13                        & 1.28 x 10$^{\text{-3}}$      \\
+Ambiguous-pLDDT                      & 3$_{10}$-helix      & -0.04                       & 1.91 x 10$^{\text{-1}}$      \\
+Rigid-pLDDT                     & 3$_{10}$-helix      & -0.17                       & 3.16 x 10$^{\text{-41}}$     \\
+All pLDDT                      & 3$_{10}$-helix      & -0.19                       & 1.08 x 10$^{\text{-67}}$     \\
+\arrayrulecolor[gray]{0.8}\hline
+Flexible-pLDDT                      & Bridge              & 0.07                        & 4.99 x 10$^{\text{-1}}$      \\
+Ambiguous-pLDDT                      & Bridge              & 0.00                        & 9.63 x 10$^{\text{-1}}$      \\
+Rigid-pLDDT                     & Bridge              & -0.18                       & 5.08 x 10$^{\text{-17}}$     \\
+All pLDDT                      & Bridge              & -0.14                       & 3.51 x 10$^{\text{-12}}$     \\
+\arrayrulecolor[gray]{0.8}\hline
+Flexible-pLDDT                      & All                 & -0.04                       & 1.93 x 10$^{\text{-26}}$     \\
+Ambiguous-pLDDT                      & All                 & -0.07                       & 2.99 x 10$^{\text{-47}}$     \\
+Rigid-pLDDT                     & All                 & -0.13                       & 0.00                         \\
+All pLDDT                      & All                 & -0.24                       & 0.00                                          \\ \bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\small
+\caption{Pearson correlation coefficients and p-values are provided for RMSF and $S_{\text{RCI}}^{2}$. These correlations are analysed as well as for the full range of pLDDT, with and without the classification of secondary structure elements (all SS).}
+\label{tab:plddt_sup:suptable8}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Subset                         & Secondary Structure & \multicolumn{1}{c}{Pearson} & \multicolumn{1}{c}{p-value}  \\ \midrule
+Flexible $S_{\text{RCI}}^{2}$  & Coil                & -0.26                       & 3.22 x 10$^{\text{-66}}$     \\
+Ambiguous $S_{\text{RCI}}^{2}$ & Coil                & -0.07                       & 7.65 x 10$^{\text{-5}}$      \\
+Rigid $S_{\text{RCI}}^{2}$     & Coil                & -0.05                       & 1.27 x 10$^{\text{-3}}$      \\
+All $S_{\text{RCI}}^{2}$       & Coil                & -0.32                       & 1.06 x 10$^{\text{-278}}$    \\
+\arrayrulecolor[gray]{0.8}\hline
+Flexible $S_{\text{RCI}}^{2}$  & Strand              & -0.11                       & 4.84 x 10$^{\text{-3}}$      \\
+Ambiguous $S_{\text{RCI}}^{2}$ & Strand              & -0.04                       & 2.57 x 10$^{\text{-2}}$      \\
+Rigid $S_{\text{RCI}}^{2}$     & Strand              & -0.06                       & 6.85 x 10$^{\text{-15}}$     \\
+All $S_{\text{RCI}}^{2}$       & Strand              & -0.08                       & 5.2 x 10$^{\text{-26}}$      \\
+\arrayrulecolor[gray]{0.8}\hline
+Flexible $S_{\text{RCI}}^{2}$  & $\alpha$-helix      & -0.01                       & 5.62 x 10$^{\text{-1}}$      \\
+Ambiguous $S_{\text{RCI}}^{2}$ & $\alpha$-helix      & -0.08                       & 2.07 x 10$^{\text{-4}}$      \\
+Rigid $S_{\text{RCI}}^{2}$     & $\alpha$-helix      & -0.05                       & 2.66 x 10$^{\text{-14}}$     \\
+All $S_{\text{RCI}}^{2}$       & $\alpha$-helix      & -0.15                       & 4.72 x 10$^{\text{-124}}$    \\
+\arrayrulecolor[gray]{0.8}\hline
+Flexible $S_{\text{RCI}}^{2}$  & Turn                & -0.11                       & 9.5 x 10$^{\text{-13}}$      \\
+Ambiguous $S_{\text{RCI}}^{2}$ & Turn                & -0.03                       & 5.21 x 10$^{\text{-2}}$      \\
+Rigid $S_{\text{RCI}}^{2}$     & Turn                & -0.03                       & 8.36 x 10$^{\text{-3}}$      \\
+All $S_{\text{RCI}}^{2}$       & Turn                & -0.15                       & 1.15 x 10$^{\text{-76}}$     \\
+\arrayrulecolor[gray]{0.8}\hline
+Flexible $S_{\text{RCI}}^{2}$  & 3$_{10}$-helix      & -0.16                       & 1.23 x 10$^{\text{-2}}$      \\
+Ambiguous $S_{\text{RCI}}^{2}$ & 3$_{10}$-helix      & -0.02                       & 7.13 x 10$^{\text{-1}}$      \\
+Rigid $S_{\text{RCI}}^{2}$     & 3$_{10}$-helix      & -0.08                       & 3.34 x 10$^{\text{-3}}$      \\
+All $S_{\text{RCI}}^{2}$       & 3$_{10}$-helix      & -0.14                       & 4.67 x 10$^{\text{-11}}$     \\
+\arrayrulecolor[gray]{0.8}\hline
+Flexible $S_{\text{RCI}}^{2}$  & Bridge              & -0.14                       & 1.34 x 10$^{\text{-1}}$      \\
+Ambiguous $S_{\text{RCI}}^{2}$ & Bridge              & -0.18                       & 1.44 x 10$^{\text{-2}}$      \\
+Rigid $S_{\text{RCI}}^{2}$     & Bridge              & -0.07                       & 1.91 x 10$^{\text{-1}}$      \\
+All $S_{\text{RCI}}^{2}$       & Bridge              & -0.07                       & 6.56 x 10$^{\text{-2}}$      \\
+\arrayrulecolor[gray]{0.8}\hline
+Flexible $S_{\text{RCI}}^{\text{2}}$  & All                 & -0.17                       & 6.97 x 10$^{\text{-75}}$     \\
+Ambiguous $S_{\text{RCI}}^{\text{2}}$ & All                 & -0.05                       & 4.03 x 10$^{\text{-10}}$     \\
+Rigid $S_{\text{RCI}}^{\text{2}}$     & All                 & -0.06                       & 3.59 x 10$^{\text{-44}}$     \\
+All $S_{\text{RCI}}^{\text{2}}$       & All                 & -0.22                       & 0.00                         \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{pLDDT//plddt_figures//supplementary_bhawna/supfig18.pdf}
+    \caption{\textbf{Pearson correlation coefficients between RMSF and $S_{\text{RCI}}^{2}$.} Distribution of Pearson correlation coefficients between RMSF values and $S_{\text{RCI}}^{2}$ values of amino acids for AlphaFold2 models (blue) and NMR models (yellow).}
+    \label{fig:plddt_sup:sup18}
+\end{figure}
+
+\subsection*{Examples of $S_{\text{RCI}}^{2}$ and RMSF correlation for Alphafold2 and NMR models}
+
+The correlation between the per-residue RMSF and per-residue $S_{\text{RCI}}^{2}$ values of a given protein is generally expected to be negative, because rigid regions would correspond to Rigid RMSF and Flexible $S_{\text{RCI}}^{2}$. There were a few NMR models that showed (unexpected) positive correlation between $S_{\text{RCI}}^{2}$ and RMSF.
+
+\subsection*{Example of a protein where the AlphaFold2 model has a slightly weaker negative $S_{\text{RCI}}^{2}$ versus RMSF correlation than the NMR model}
+
+The Pearson correlation coefficient between RMSF and $S_{\text{RCI}}^{2}$ values is -0.52 for the AlphaFold2 model of protein Q96LL9-2YUA (BMRB id 11144). For the 20 NMR structures, 19 have a Pearson correlation coefficient between RMSF and $S_{\text{RCI}}^{2}$ that lie in the range -0.65 to -0.81 and the remaining model shows -0.40. Therefore, the AlphaFold2 model has weaker correlation than most of the NMR models. In addition, in the figures beFlexible, the NMR model shows residues with ambiguous secondary structure (grey). The ambiguous residues were computed by the dumb consensus of secondary structure with a 70\% threshold within the NMR ensemble.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pLDDT//plddt_figures//supplementary_bhawna/supfig19.pdf}
+    \caption{\textbf{Example of a protein (Q96LL9-2YUA).} The 3D structures with secondary structure mapping colours are shown on the right: AlphaFold2 model (right top) and NMR ensemble (right bottom, 20 NMR models shown at once). Comparing $S_{\text{RCI}}^{2}$ (red, dashed) and RMSF (black line) of the AlphaFold2 model and the NMR ensemble (for this protein, there were 20 NMR models within the ensemble). The secondary structure is indicated with shaded regions. The pLDDT of the sequence is shown beFlexible the plots. (Color legends at the top of the figure.)}
+    \label{fig:plddt_sup:sup19}
+\end{figure}
+
+\subsection*{Example of a protein where the AlphaFold2 model has a slightly stronger negative $S_{\text{RCI}}^{2}$ versus RMSF correlation than (most of) the NMR models}
+
+The Pearson correlation coefficient between RMSF and $S_{\text{RCI}}^{2}$ values is -0.91 for the AlphaFold2 model of protein Q922K9-2D8J (BMRB id: 11214). For the 20 NMR models within the ensemble, the Pearson correlation coefficient between RMSF and $S_{\text{RCI}}^{2}$ lie in the range -0.63 to -0.91, where 19 models show correlation coefficient beFlexible -0.91. Therefore, the AlphaFold2 model has stronger negative correlation than most of the NMR models.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pLDDT//plddt_figures//supplementary_bhawna/supfig20.pdf}
+    \caption{\textbf{Example of a protein (Q922K9-2D8J).} The 3D structures with secondary structure mapping colours are shown on the right: truncated AlphaFold2 model (right top) and NMR ensemble (right bottom, 20 NMR models within the ensemble shown at once). Comparing $S_{\text{RCI}}^{2}$ (red, dashed) and RMSF (black line) of the AlphaFold2 model and the NMR models (for this protein, there were 20). The secondary structure is indicated with shaded regions. The pLDDT of the sequence is shown beFlexible the plots.}
+    \label{fig:plddt_sup:sup20}
+\end{figure}
+
+\subsection*{Example of a protein where the AlphaFold2 model has a (unexpected) positive $S_{\text{RCI}}^{2}$ versus RMSF correlation, while the NMR models show negative correlation}
+
+The Pearson correlation coefficient between RMSF and $S_{\text{RCI}}^{2}$ values is 0.63 for the AlphaFold2 model and ranges from -0.62 to -0.85 for the 20 NMR models within the ensemble of protein Q02053-2V31 (BMRB id 18758).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pLDDT//plddt_figures//supplementary_bhawna/supfig21.pdf}
+    \caption{\textbf{Example of a protein (Q02053-2V31).} The 3D structures with secondary structure mapping colours are shown on the right: truncated AlphaFold2 model (right top) and NMR ensemble (right bottom, 20 NMR models within the ensemble shown at once). Comparing $S_{\text{RCI}}^{2}$ (red, dashed) and RMSF (black line) of the AlphaFold2 model and the NMR models (for this protein, there were 20). The secondary structure is indicated with shaded regions. The pLDDT of the sequence is shown beFlexible the plot.}
+    \label{fig:plddt_sup:sup21}
+\end{figure}
+
+\subsection*{Example of a protein where the AlphaFold2 model has a negative $S_{\text{RCI}}^{2}$ versus RMSF correlation, while the NMR structure shows (unexpected) positive correlation.}
+
+The Pearson correlation coefficient between RMSF and $S_{\text{RCI}}^{2}$ values is -0.4 for the AlphaFold2 model and ranges from 0.00 to 0.09 for the 20 NMR structures of protein P37665-2N48. (BMRB id 15683).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pLDDT//plddt_figures//supplementary_bhawna/supfig22.pdf}
+    \caption{\textbf{Example of a protein (P37665-2N48).} The 3D structures with secondary structure mapping colours are shown on the right: truncated AlphaFold2 model (right top) and NMR ensemble (right bottom, 20 NMR models within the ensemble shown at once). Comparing $S_{\text{RCI}}^{2}$ (red, dashed) and RMSF (black line) of the AlphaFold2 model and the NMR models (for this protein, there were 20). The secondary structure is indicated with shaded regions. The pLDDT of the sequence is shown beFlexible the plots.}
+    \label{fig:plddt_sup:sup22}
+\end{figure}
+
+\subsection*{Example of a protein where the 88\% of overlapping amino acid sequence between AlphaFold2 NMR shows conflicting secondary structure.}
+
+The Pearson correlation coefficient between RMSF and $S_{\text{RCI}}^{2}$ values is -0.55 for the AlphaFold2 model and ranges from -0.74 to -0.86 for the 20 NMR structures of protein P0AFW0-2LCL (BMRB id 17615).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pLDDT//plddt_figures//supplementary_bhawna/supfig23.pdf}
+    \caption{\textbf{Example of a protein (P0AFW0-2LCL).} The 3D structures with secondary structure mapping colours are shown on the right: AlphaFold2 model overlapping with NMR sequence (right top) and NMR ensemble (right bottom, 20 NMR models within the ensemble shown at once). Comparing $S_{\text{RCI}}^{2}$ (red, dashed) and RMSF (black line) of the truncated AlphaFold2 model and the NMR models (for this protein, there were 20). The secondary structure is indicated with shaded regions. The pLDDT of the sequence is shown beFlexible the plot. The sequence in the RMSF plot shows sequence from 101-150 amino acids, while the structure shows 101-161 amino acids.}
+    \label{fig:plddt_sup:sup23}
+\end{figure}
+
+\subsection*{Conflicting secondary structure elements between AlphaFold2 and NMR models}
+
+Using STRIDE, a secondary structure (SS) element is assigned to each residue of the AlphaFold2 model of a protein, and to each residue of the models in the NMR ensemble of the protein. When a residue has an equal assignment in all models (one AlphaFold2 model and one (or more) NMR models), we say that the residue has identical SS. When a residue has a different assigned SS in the AlphaFold2 model compared to its assigned SS in all the protein’s NMR models, we say that the residue has a conflicting SS. Besides these residues with conflicting SS and identical SS, there is a third group of residues: a residue might have an AlphaFold2 assigned SS that is identical to the SS in some of the NMR models but conflicting in some of the other NMR models of the protein.
+
+There are 746 unique proteins with 746 AlphaFold2 models and 746 NMR ensembles (totaling 14,069 NMR models), corresponding to 14,069 AlphaFold2-NMR pairs (see main text). Out of the 74,879 unique residues of these proteins that are present in the AlphaFold2 sequence and the NMR models (overlapping), several residues (19,561) from one or more NMR models of the same ensemble exhibit indeed both conflicting and identical secondary structures. This variability arises because different NMR models within the same ensemble can show different secondary structures for the same residues. These residues are shown as the overlap between conflicting and identical secondary structures in \suppfigref{fig:plddt_sup:sup24}. The distribution of $S^2_{\text{RCI}}$, RMSF, and pLDDT for residues with conflicting secondary structures (6,738 residues) is shown in \suppfigref{fig:plddt_sup:sup25}. The Pearson correlation coefficient between $S^2_{\text{RCI}}$ and RMSF for residues with conflicting secondary structures (SS) is -0.17 (p-value = $1.26 \times 10^{-44}$, $N=6,258$ where N is the number of amino acids with $S^2_{\text{RCI}}$ available values). For $S^2_{\text{RCI}}$ and pLDDT, the Pearson correlation is 0.44 (p-value = $0.94 \times 10^{-308}$, $N=6,258$), and it is -0.14 (p-value = $6.96 \times 10^{-35}$, $N= 6,738$) for RMSF and pLDDT.
+
+We also examined the conflicting SS residues for each structure in 14,069 AlphaFold2-NMR pairs, identifying a total of 14,006 AlphaFold2-NMR pairs with conflicting SS residues. For these 14,006 pairs, we computed the difference in the Pearson correlation coefficients ($\rho_{k,m}^{\text{NMR}}$ and $\rho_{k,m}^{\text{AF2}}$, for detailed explanation see results section 3.5.2 in main) of AlphaFold2-NMR pairs (Eq. \ref{eq:supp_plddt:eq5}). The values $\Delta \rho_{k,m} > 0$ indicates that $\rho_{k,m}^{\text{NMR}}$ is stronger than $\rho_{k,m}^{\text{AF2}}$, while $\Delta \rho_{k,m} < 0$ indicates that $\rho_{k,m}^{\text{AF2}}$ is stronger than $\rho_{k,m}^{\text{NMR}}$. Out of 14,006 AlphaFold2-NMR pairs, 9,994 showed stronger $\rho_{k,m}^{\text{NMR}}$, and the remaining 4,012 pairs showed stronger $\rho_{k,m}^{\text{AF2}}$. The distribution of conflicting SS residues for both cases is shown in \suppfigref{fig:plddt_sup:sup26}. For AlphaFold2 models where correlation between $S^2_{\text{RCI}}$ vs RMSF is stronger than NMR models, the percentage of conflicting SS residues range from 0.86\% to 80.48\%, with an average of $19.46 \pm 10.18\%$ conflicting SS residues across the overlapping sequences of AlphaFold2 and NMR models. In comparison, for NMR models, the range is from 1.01\% to 88.00\% with an average of $19.07 \pm 9.91\%$ conflicting SS residues.
+
+\begin{equation} \label{eq:supp_plddt:eq5}
+\Delta \rho_{k,m} = \rho_{k,m}^{\text{AF2}} - \rho_{k,m}^{\text{NMR}}
+\end{equation}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pLDDT//plddt_figures//supplementary_bhawna/supfig24.pdf}
+    \caption{\textbf{Total conflicting secondary structure residues.} The Venn diagram representing total number of unique residues for 14,069 AlphaFold2-NMR pairs with conflicting secondary structure residues and identical secondary structure residues.}
+    \label{fig:plddt_sup:sup24}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pLDDT//plddt_figures//supplementary_bhawna/supfig25.pdf}
+    \caption{\textbf{Conflicting secondary structure residues.} A) $S_{\text{RCI}}^{2}$ vs pLDDT, B) $S_{\text{RCI}}^{2}$ vs RMSF, and C) pLDDT vs RMSF of 6,738 residues with conflicting secondary structures between AlphaFold2-NMR pairs are shown. The A, B, and C are visualized with a Gaussian kernel estimator between their corresponding x-axis and y-axis variables.}
+    \label{fig:plddt_sup:sup25}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pLDDT//plddt_figures//supplementary_bhawna/supfig26.pdf}
+    \caption{\textbf{Distribution of conflicting SS residues in AlphaFold2-NMR pairs.} The distribution of conflicting SS residues is shown as percentage on x-axis for A) AlphaFold2 models where the correlation between $S_{\text{RCI}}^{2}$ vs RMSF is stronger than NMR models, and B) NMR models where the correlation between $S_{\text{RCI}}^{2}$ vs RMSF is stronger than AlphaFold2 models.}
+    \label{fig:plddt_sup:sup26}
+\end{figure}
+
+% Suptable 8
+
+\begin{sidewaystable}
+\caption{\textbf{Examples of proteins with Pearson correlation coefficients between S$_{\text{RCI}}^{2}$ vs RMSF.} The Pearson correlation coefficients of specific proteins with their unique UniProt ID are reported for their respective AlphaFold2 and NMR models, including the number of conflicting residues occurring between the overlapping sequence of between the AlphaFold2 and NMR models, and total number of residues in the non-truncated and truncated AlphaFold2 models. For the NMR models, an example of only one structure from the NMR ensemble is provided.}
+% \scriptsize
+\footnotesize
+\centering
+\label{tab:plddt_sup:suptable9}
+\begin{tabular}{@{}cccccccc@{}}
+\toprule
+UniProt ID &
+  \begin{tabular}[c]{@{}c@{}}Correlation \\ coefficient \\ (AF2)\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Correlation \\ coefficient\\ (NMR)\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}\# conflicting \\ residues\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Total \\ overlapping \\ residues\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Conflicting \\ residues (\%)\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Total \# residues \\ (non-truncated)\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Total \# residues \\ (non-truncated)\end{tabular} \\ \midrule
+C3VPR6 & -0.75 & -0.73 & 13.85 & 87  & 15.92 & 1915 & 1898 \\
+O43157 & -0.60 & -0.46 & 21.95 & 112 & 19.60 & 2135 & 2122 \\
+O60885 & -0.65 & -0.78 & 15.00 & 83  & 18.07 & 1362 & 1315 \\
+P00519 & -0.89 & -0.83 & 26.50 & 97  & 27.32 & 1130 & 1081 \\
+P16157 & -0.64 & -0.66 & 15.70 & 104 & 15.10 & 1881 & 1817 \\
+P26039 & -0.82 & -0.78 & 12.00 & 132 & 9.09  & 2541 & 2523 \\
+P35670 & -0.81 & -0.86 & 29.00 & 161 & 18.01 & 1465 & 1352 \\
+P36006 & -0.84 & -0.87 & 13.05 & 69  & 18.91 & 1272 & 1230 \\
+P38398 & -0.58 & -0.57 & 29.07 & 104 & 27.95 & 1863 & 1851 \\
+P59046 & -0.79 & -0.68 & 28.00 & 93  & 30.11 & 1061 & 1056 \\
+Q04656 & -0.73 & -0.68 & 57.15 & 181 & 31.57 & 1500 & 1436 \\
+Q53SF7 & -0.52 & -0.76 & 19.15 & 79  & 24.24 & 1128 & 1041 \\
+Q63HR2 & -0.54 & -0.79 & 23.55 & 114 & 20.66 & 1409 & 1375 \\
+Q92625 & -0.58 & -0.76 & 26.00 & 80  & 32.50 & 1134 & 1069 \\
+Q9P212 & -0.73 & -0.86 & 25.95 & 101 & 25.69 & 2302 & 1881 \\ \bottomrule
+\end{tabular}
+\end{sidewaystable}

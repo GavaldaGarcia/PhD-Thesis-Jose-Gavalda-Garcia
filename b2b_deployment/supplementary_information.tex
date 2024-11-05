@@ -1,0 +1,133 @@
+% \chapter*{Supplementary information chapter \ref{chapter:b2btools_deployment}}
+\chapter*{Supplementary information chapter 6}
+\setcounter{chapter}{6}
+% \addcontentsline{toc}{chapter}{Supplementary information chapter \ref{chapter:b2btools_deployment}}
+\addcontentsline{toc}{chapter}{Supplementary information chapter 6}
+\markright{SUPPLEMENTARY INFORMATION}
+
+\begingroup
+% Reset table and figure counters
+\setcounter{table}{0}
+\setcounter{figure}{0}
+
+% Redefine table and figure captions
+\captionsetup[table]{name=Supplementary Table}
+\captionsetup[figure]{name=Supplementary Fig.}
+
+
+\begin{table}[ht]
+\centering
+\small
+% \captionsetup{justification=centering}
+\caption{\textbf{Tools description.} Simple description of every tool contained in bio2Byte tools.}
+\label{tab:tool_explanation}
+% \begin{tabular}{c p{10cm}}
+% \begin{tabular}{>{\raggedright}m{1.5cm} p{10cm}} % Use 'm' column type for vertical alignment control
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{10cm}} % Ensuring top alignment
+\toprule
+\textbf{\color{black} Predictor} & \textbf{\color{black} Usage} \\ \midrule
+\color{black} DynaMine & \color{black} Fast predictor of protein backbone dynamics using only sequence information as input. The current version also predicts side-chain dynamics and secondary structure predictors using the same principle. \\ %\hline
+\color{black} DisoMine & \color{black} Predicts protein disorder with recurrent neural networks not directly from the amino acid sequence, but instead from more generic predictions of key biophysical properties, here protein dynamics, secondary structure and early folding. \\ %\hline
+\color{black} EfoldMine & \color{black} Predicts from the primary amino acid sequence of a protein, which amino acids are likely involved in early folding events. \\ %\hline
+\color{black} AgMata & \color{black} Single-sequence based predictor of protein regions that are likely to cause beta-aggregation. \\ %\hline
+\color{black} PSPer & \color{black} PSP (Phase Separating Protein) predicts whether a protein is likely to phase-separate with a particular mechanism involving RNA interacts (FUS-like proteins). It will highlight protein regions that are involved mechanistically, and provide an overall score. \\ %\hline
+\color{black} ShiftCrypt & \color{black} Auto-encoding NMR chemical shifts from their native vector space to a residue-level biophysical index. \\ \bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[ht]
+\centering
+\small
+% \captionsetup{justification=centering}
+\caption{\textbf{Overview of internal tool dependencies.} The predictors contained in this software suite often require the execution of other predictors in our suite. The optimisation process is explained in the main text and the list of dependencies is described in this table. }
+\label{tab:tool_dependencies}
+\begin{tabular}{ll}
+% \hline
+\toprule
+\textbf{Tool} & \textbf{Dependencies} \\ \midrule
+DynaMine & None \\ %\hline
+EFoldMine & DynaMine \\ %\hline
+DisoMine & DynaMine, EFoldMine \\ %\hline
+AGmata & DynaMine, EFoldMine \\ %\hline
+PSPer & DynaMine, EFoldMine, DisoMine\\ %\hline
+ShiftCrypt & None \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{\textbf{Python Versions and Distribution Sources for all the manually generated Docker images.} For each new release of bio2Byte Tools, the following set of Docker images are generated and published on \url{https://hub.docker.com/r/bio2byte/b2btools} for additional control over the version of Python and the provenance of the dependencies.}
+\label{tab:docker_versions}
+\begin{small}
+\begin{tabular}{p{1.5cm} l p{8cm}}
+\toprule
+\textbf{Python Version} & \textbf{Source} & \textbf{Description} \\ \midrule
+3.7 & PyPI & Generated from PyPI distributions using Python 3.7. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-pypi_py3.7-linux64/images/sha256-5327a11cd680114080ab3a7e7cea1917e45536a3816c4c3baddb2d981b4cfb55?context=explore}{(Link to image)} 
+\\ %\hline
+3.7 & Conda & Generated from Conda distributions using Python 3.7. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-conda_py3.7-linux64/images/sha256-c8ffc40d4eda5449721bbb8aa74a2fcc7a873843c84a4ee585354a53177b3e25?context=explore}{(Link to image)} 
+\\ %\hline
+3.7 & System & Generated from System packages using Python 3.7. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-pkg_py3.7-linux64/images/sha256-063cd6df621017c0194a52c7b8116db800dc525f2bf380e7e2f6966b01f4daef?context=explore}{(Link to image)} 
+\\ \arrayrulecolor[gray]{0.8}\hline
+3.8 & PyPI & Generated from PyPI distributions using Python 3.8. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-pypi_py3.8-linux64/images/sha256-13537a7fc7289fd3f85ddde7d992164bb6e7e28b9bd3c77656dffbd0db9d94d1?context=explore}{(Link to image)} 
+\\ %\hline
+3.8 & Conda & Generated from Conda distributions using Python 3.8. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-conda_py3.8-linux64/images/sha256-905d3914d9774cfce596f6af027088a154ded1f95abae0d09e3c7e97fbf0d059?context=explore}{(Link to image)}
+\\ %\hline
+3.8 & System & Generated from System packages using Python 3.8. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-pkg_py3.8-linux64/images/sha256-6fb04d6c62f5023ad47471ee3cec7cd687dfdeaf89e9d8ba9bd75eade03f394e?context=explore}{(Link to image)} 
+\\ \arrayrulecolor[gray]{0.8}\hline
+3.9 & PyPI & Generated from PyPI distributions using Python 3.9. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-pypi_py3.9-linux64/images/sha256-5e0eeb86bf8189f34d22f7420e25f46811a416880e494dcc7d4601c2a2d66cc8?context=explore}{(Link to image)}
+\\ %\hline
+3.9 & Conda & Generated from Conda distributions using Python 3.9. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-conda_py3.9-linux64/images/sha256-aca1984afbb71132923dfca301b74d24a688a2584bfeddc24fa720bfc056bf42?context=explore}{(Link to image)} 
+\\ %\hline
+3.9 & System & Generated from System packages using Python 3.9. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-pkg_py3.9-linux64/images/sha256-9f88a39914e50336e222f1dd1a8c1b6a9be05711f186533eaa7ea4856c066798?context=explore}{(Link to image)} 
+\\ \arrayrulecolor[gray]{0.8}\hline
+3.10 & PyPI & Generated from PyPI distributions using Python 3.10. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-pypi_py3.10-linux64/images/sha256-e0937fe94e181fb076353469c4e5098ae5a337121deadd4b3c13be23fdc37e6e?context=explore}{(Link to image)} 
+\\ %\hline
+3.10 & Conda & Generated from Conda distributions using Python 3.10. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-conda_py3.10-linux64/images/sha256-ad02b57eae26760992053fc257bc67cc079f4c2d06be294cf7053defd2712bb5?context=explore}{(Link to image)} 
+\\ %\hline
+3.10 & System & Generated from System packages using Python 3.10. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-pkg_py3.10-linux64/images/sha256-fdb6afe502361d61c2d38e0dd86ba301d6851ec206613a529a8752275a874e9a?context=explore}{(Link to image)} 
+\\ \arrayrulecolor[gray]{0.8}\hline
+3.11 & PyPI & Generated from PyPI distributions using Python 3.11. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-pypi_py3.11-linux64/images/sha256-8c7a49afcd780cf6466193ed0c20c7eb128256ecddeeaaebe85f25589ca275ae?context=explore}{(Link to image)} 
+\\ %\hline
+3.11 & Conda & Generated from Conda distributions using Python 3.11. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-conda_py3.11-linux64/images/sha256-3e290ba287d254bc166a03fb66321370f24dc1408c060f6e92246061df46d519?context=explore}{(Link to image)} 
+\\ %\hline
+3.11 & System & Generated from System packages using Python 3.11. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-pkg_py3.11-linux64/images/sha256-edb04f9a3fb1c6974db32abeeb274351bc15b9b04a503037919c2b5bbf3e9f9f?context=explore}{(Link to image)} 
+\\ \arrayrulecolor[gray]{0.8}\hline
+3.12 & PyPI & Generated from PyPI distributions using Python 3.12. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-pypi_py3.12-linux64/images/sha256-18060407097485c100b382da9651bff4a6e5b7e63d7ecb0669c11b32807d33b1?context=explore}{(Link to image)} 
+\\ %\hline
+3.12 & Conda & Generated from Conda distributions using Python 3.12. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-conda_py3.12-linux64/images/sha256-f054968f96fe653515aa81481b67683473f924cbd479eecc114d91d2b43d3d39?context=explore}{(Link to image)} 
+\\ %\hline
+3.12 & System & Generated from System packages using Python 3.12. 
+% \href{https://hub.docker.com/layers/bio2byte/b2btools/3.0.7b3-pkg_py3.12-linux64/images/sha256-37c7dbc9efb4b054520d3ddd3768ce888cf87ed10116141f2bde48eb2e4a1e12?context=explore}{(Link to image)} 
+\\ \arrayrulecolor{black}\bottomrule
+
+\end{tabular}
+\end{small}
+\end{table}
+
+\begin{figure*}[!t]%
+\includegraphics[width=\linewidth]{b2b_deployment/Fig/pytest_turn_bar_310.pdf}  
+\centering
+\caption{\textbf{Pytest process diagram.} The package testing process starts from a single Git repository, which then creates an environment per Python version from 3.7 to 3.12. For each environment, a series of tests on the source code are executed, namely the execution of single sequence, multiple sequence, parsers, and ShiftCrypt/NMR modules. Then the outputs get compared to ground results values and assessed for differences beyond float point errors (sum of absolute differences across all predicted metrics and residues, proteins and residues smaller than 0.001). A python package is then created and single sequence and multiple sequence modules are newly tested. If all tests across all Python versions are satisfactory, the python package will be uploaded to PyPI and to Bioconda. Then, an array of Docker images are created and uploaded to Docker Hub, following the settings in \supptableref{tab:docker_versions}. Finally, Bioconda automatically deposits a docker container with the Python 3.10 version of the package in Biocontainers, which can then be deployed into Galaxy.}
+\label{pytest}
+\end{figure*}
+
+
+\endgroup

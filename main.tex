@@ -1,0 +1,330 @@
+\documentclass[b5paper, 12pt]{book}
+
+% Enable numbering for subsubsections
+\setcounter{secnumdepth}{3}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{soul} % For highlightin
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{geometry} % For custom page layout
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
+\usepackage{breakurl}
+\usepackage{amssymb}
+\usepackage{fancyhdr} % For customizing headers
+\usepackage{breqn}
+\usepackage{rotating}
+\usepackage{float}
+% \usepackage{titling}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subfiles}
+% \usepackage{capt-of}  % For the caption handling
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ebgaramond}
+\usepackage{listings}
+\usepackage{ragged2e}
+\usepackage{amsthm}
+\usepackage{colortbl}
+% \usepackage{etoolbox}
+\usepackage{hyphenat}
+% \usepackage[toc, acronym, section=chapter]{glossaries}
+\usepackage[toc, acronym, nonumberlist, section=chapter]{glossaries}
+% \usepackage{xr}
+
+\hyphenation{res-i-dues}
+\hyphenation{Alpha-Fold}
+\hyphenation{Shift-Crypt}
+
+% Reduce chapter title size but keep "Chapter" above the title
+\titleformat{\chapter}[display]
+  {\normalfont\Large\bfseries}{\chaptername\ \thechapter}{10pt}{\Large}
+
+  % Adjust spacing before and after chapter title
+\titlespacing*{\chapter}{0pt}{-10pt}{10pt} % {left}{before-sep}{after-sep}
+
+% Define a simple abstract environment
+\newcommand{\abstractname}{Abstract} % Define abstract name
+\newenvironment{abstract}{%
+    \setlength{\emergencystretch}{10em}% Adjust as necessary
+    \noindent\textbf{\abstractname}\par\medskip
+    \ignorespaces
+}{%
+    \par
+    \setlength{\emergencystretch}{0em} % Reset to default value
+    \ignorespacesafterend
+}
+
+\usepackage{xcolor} % For defining colors and highlighting
+% Highlight added by JG to highlight revision changes
+% \renewcommand{\textcolor}[2]{ #2 }
+
+% Define custom colors for syntax highlighting
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+
+% Setup the lstlisting environment
+\lstset{
+    language=Python,                % Specify the language
+    % Removed backgroundcolor for transparency
+    commentstyle=\color{codegreen},
+    backgroundcolor=\color{backcolour}, 
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize, % Monospaced font
+    breakatwhitespace=false,         
+    breaklines=true,                 % Allows line breaks
+    captionpos=b,                    % Caption position bottom, can be removed if no caption
+    keepspaces=true,                 % Preserves spaces in text, useful for indentation
+    numbers=left,                    % Line numbers on left
+    numbersep=5pt,                   % How far the line-numbers are from the code
+    showspaces=false,                % Do not show spaces everywhere as underscores
+    showstringspaces=false,          % Do not show spaces in strings
+    showtabs=false,                  % Do not show tabs within strings adding particular underscores
+    tabsize=1,                       % Sets default tabsize to 2 spaces
+    % frame=single,                    % Adds a frame around the code
+    numbers=none,
+    }
+
+
+
+% Set the font size for all figure and table captions
+\captionsetup{font=small}
+
+% % Define the Supplementary Data environment
+% \newcounter{suppdata}
+% \renewcommand{\thesuppdata}{\arabic{suppdata}}
+% \newenvironment{suppdata}{%
+%   \refstepcounter{suppdata}%
+%   \noindent\textbf{Supplementary Data~\thesuppdata}\quad%
+%   \label{suppdata\thesuppdata}%
+% }{\bigskip}
+
+\newcounter{suppdata}
+\renewcommand{\thesuppdata}{\thechapter.\arabic{suppdata}}
+\newenvironment{suppdata}{%
+  \refstepcounter{suppdata}%
+  \noindent\textbf{Supplementary Data~\thesuppdata}\quad%
+  \label{suppdata\thesuppdata}%
+}{\bigskip}
+
+% Change the caption name from "Listing" to "Snippet"
+\renewcommand{\lstlistingname}{Code snippet}
+
+% % Custom reference commands
+\newcommand{\figref}[1]{Fig.~\ref{#1}}
+\newcommand{\tableref}[1]{Table~\ref{#1}}
+\newcommand{\suppfigref}[1]{Supplementary Fig.~\ref{#1}}
+\newcommand{\supptableref}[1]{Supplementary Table~\ref{#1}}
+\newcommand{\suppdataref}[1]{Supplementary Data~\ref{#1}}
+
+% Load supplementary documents to cross-reference
+% \externaldocument[supp:]{supplementary_figures}
+% \externaldocument[supp:]{supplementary_tables}
+% \externaldocument[supp:]{supplementary_data}
+% \externaldocument[supp:]{supplementary_information}
+
+% Define commands for referencing supplementary materials
+% \newcommand{\suppfigref}[1]{Supplementary Fig.~\ref{supp:#1}}
+% \newcommand{\supptableref}[1]{Supplementary Table~\ref{supp:#1}}
+% \newcommand{\suppdataref}[1]{Supplementary Data~\ref{supp:#1}}
+
+% Increase tolerance for line breaks
+\tolerance=2000
+% Allow more stretch between words
+\emergencystretch=10pt
+
+
+% \title{Vrije Universiteit Brussel\\ \vspace{1cm} % Add "Vrije Universiteit Brussel" at the top
+% Probabilistic description of protein backbone motions and conformations}
+% \author{
+%     \begin{tabular}{@{}c@{}}
+%     Author:\\Jose Gavaldá-García
+%     \end{tabular}
+%     \hspace{2cm} % Horizontal space between columns
+%     \begin{tabular}{@{}c@{}}
+%     Supervisor:\\Prof. Dr. Wim F. Vranken
+%     \end{tabular}
+% }
+% \date{2024\\ \vspace{1cm}
+% \large{Dissertation presented in fulfilment of the requirements for the Ph.D. degree in Bio-engineering Sciences at the Vrije Universiteit Brussel}}
+
+% \begin{document}
+% \frontmatter
+% \maketitle
+
+% % Adding the logos at the bottom of the title page
+% \vspace*{\fill} % Add flexible vertical space to push logos to the bottom
+% \begin{center}
+%     \begin{tabular}{cccc}
+%         \includegraphics[width=0.2\textwidth]{figures/central_dogma.pdf} &
+%         \includegraphics[width=0.2\textwidth]{figures/central_dogma.pdf} &
+%         \includegraphics[width=0.2\textwidth]{figures/central_dogma.pdf} &
+%         \includegraphics[width=0.2\textwidth]{figures/central_dogma.pdf} \\
+%     \end{tabular}
+% \end{center}
+% \vspace*{\fill} % Add flexible vertical space below logos as well
+
+\makeglossaries
+\input{preamble/glossary_entries}
+
+\begin{document}
+\frontmatter
+
+\begin{titlepage}
+    \centering
+    % \vspace*{1cm}
+
+    {\LARGE Vrije Universiteit Brussel}\\
+    \vspace{1cm}
+    \textbf{\LARGE Probabilistic Description of Protein Backbone Motions and Conformations}
+
+    % \vspace{1.5cm}
+    \vspace{1cm}
+
+    % Create a two-column layout for Author and Supervisor
+    \begin{tabular}{p{0.45\textwidth} p{0.45\textwidth}}
+        \centering Author:\\Jose Gavaldá-García &
+        \centering Supervisor:\\Prof. Dr. Wim F. Vranken \\
+    \end{tabular}
+
+
+    % \vspace{2cm}
+
+    \large{2024}\\[1cm]
+    \normalsize{Dissertation presented in fulfilment of the requirements for the PhD degree in Bio-engineering Sciences at the Vrije Universiteit Brussel}
+
+    \vspace{1cm}
+
+    \normalsize{Jury members:\\
+Prof. Dr. Tom Lenaerts (VUB, chair)\\
+Prof. Dr. Sophie de Buyl (VUB, secretary)\\
+Prof. Dr. Wim F. Vranken (VUB, promotor)\\
+Prof. Dr. Joris Messens (VUB)\\
+Prof. Dr. Peter Tompa (VUB)\\
+Prof. Dr. Anastassia Vorobieva (VUB)\\
+Prof. Dr. Franca Fraternali (University College London, UK)\\
+Prof. Dr. Rachid Tahzima (ULiège/ILVO)}
+
+    \vfill % Fill the remaining space
+    % \vspace{2cm}
+
+%     % Place logos in a minipage to keep them on the same page
+\begin{minipage}{\textwidth}
+    \centering
+    \begin{tabular}{lccr}
+        \raisebox{-0.5\height}{\includegraphics[width=0.18\textwidth]{preamble/logos/vub_logo.pdf}} &
+        \hspace{0.08cm} % Adjust horizontal space between logos
+        \raisebox{-0.5\height}{\includegraphics[width=0.18\textwidth]{preamble/logos/IB2logo.pdf}} &
+        \hspace{0.08cm} % Adjust horizontal space between logos
+        \raisebox{-0.5\height}{\includegraphics[width=0.21\textwidth]{preamble/logos/RNActlogoresized2.pdf}} &
+        \hspace{0.08cm} % Adjust horizontal space between logos
+        \raisebox{-0.5\height}{\includegraphics[width=0.25\textwidth]{preamble/logos/sbb_logo.pdf}} \\
+    \end{tabular}
+\end{minipage}
+
+
+    \vspace{1cm} % Add some space below logos if needed
+\end{titlepage}
+
+
+% Quote on the first right-hand page
+\cleardoublepage
+\thispagestyle{empty} % Remove headers/footers from this page
+\vspace*{\fill}
+\begin{center}
+    \textit{``Computer says no''} \\
+    --- Carol Beer (Little Britain)
+\end{center}
+\vspace*{\fill}
+
+% Dedication on the next right-hand page
+\cleardoublepage
+\thispagestyle{empty} % Remove headers/footers from this page
+\vspace*{\fill}
+\begin{center}
+    \textit{A mi abuela Brígida ``Pati'', por hacerme quien soy y llegaré a ser.}
+    % \textit{Here goes a dedication}
+\end{center}
+
+\vspace{5em}
+
+\begin{center}
+    \textit{In loving memory of my grandmother Brígida ``Pati'',\\for shaping who I am and who I will become.}
+\end{center}
+\vspace*{\fill}
+
+\include{preamble/overal_abstract}
+\include{preamble/overal_samenvatting}
+% \include{preamble/list_of_abbreviations}
+% % \include{preamble/glossary}
+% \printglossaries
+\cleardoublepage
+
+
+% Table of Contents
+\renewcommand{\contentsname}{Table of contents}
+\tableofcontents
+\newpage
+
+\include{preamble/list_of_abbreviations}
+% \include{preamble/glossary}
+\printglossaries
+\cleardoublepage
+
+\include{preamble/acknowledgements}
+\newpage
+
+\mainmatter
+
+% \include{intro_chapters}
+\include{introduction}
+\newpage
+\include{contributions}
+
+
+
+% List of articles
+\include{articles_in_thesis}
+\include{aims_of_the_thesis}
+% \newpage
+
+\subfile{constava/main_constava}
+
+\include{ambiguous/main_ambiguous}
+
+\subfile{pLDDT/main_plddt}
+
+\subfile{b2b_deployment/main_b2b_deployment}
+
+
+
+% Non-first papers
+
+% \include{corona/main_corona}
+% \include{b2b_online/main_b2b_online}
+
+
+
+\include{discussion}
+
+\begingroup
+\small
+\bibliographystyle{unsrt}
+\bibliography{the_bibliography} 
+\endgroup
+
+% \input{constava/supplementary_information_constava}
+% \input{b2b_deployment/supplementary_information}
+
+% \input{pLDDT/plddt_supplementary}
+% \input{pLDDT/plddt_supplementary_part2}
+
+\end{document}

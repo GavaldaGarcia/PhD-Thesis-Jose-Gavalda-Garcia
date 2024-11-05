@@ -1,0 +1,111 @@
+\documentclass[A4paper, 12pt]{book}
+% \documentclass{standalone}
+% \usepackage{standalone}
+% \usepackage{graphicx}
+% \usepackage{caption}
+% \usepackage{amsmath}
+% % \usepackage{xr}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{soul} % For highlightin
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{geometry} % For custom page layout
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{breakurl}
+\usepackage{amssymb}
+\usepackage{fancyhdr} % For customizing headers
+\usepackage{breqn}
+\usepackage{rotating}
+\usepackage{float}
+% \usepackage{titling}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subfiles}
+% \usepackage{capt-of}  % For the caption handling
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ebgaramond}
+\usepackage{listings}
+\usepackage{ragged2e}
+\usepackage{amsthm}
+\usepackage{colortbl}
+% \usepackage{etoolbox}
+\usepackage{hyphenat}
+\usepackage{xr}
+
+\begin{document}
+
+\frontmatter
+
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+
+    {\LARGE Vrije Universiteit Brussel}\\
+    \vspace{1cm}
+    \textbf{\LARGE Supplementary Information for\\``Probabilistic description of protein backbone motions and conformations''}
+
+    \vspace{1.5cm}
+
+    % Create a two-column layout for Author and Supervisor
+    \begin{tabular}{p{0.45\textwidth} p{0.45\textwidth}}
+        \centering Author:\\Jose Gavaldá-García &
+        \centering Supervisor:\\Prof. Dr. Wim F. Vranken \\
+    \end{tabular}
+
+
+    \vspace{2cm}
+
+    \large{2024}\\[1cm]
+    \normalsize{Dissertation presented in fulfilment of the requirements for the PhD degree in Bio-engineering Sciences at the Vrije Universiteit Brussel}
+
+    \vfill % Fill the remaining space
+
+%     % Place logos in a minipage to keep them on the same page
+\begin{minipage}{\textwidth}
+    \centering
+    \begin{tabular}{lccr}
+        \raisebox{-0.5\height}{\includegraphics[width=0.18\textwidth]{preamble/logos/vub_logo.pdf}} &
+        \hspace{0.08cm} % Adjust horizontal space between logos
+        \raisebox{-0.5\height}{\includegraphics[width=0.18\textwidth]{preamble/logos/IB2logo.pdf}} &
+        \hspace{0.08cm} % Adjust horizontal space between logos
+        \raisebox{-0.5\height}{\includegraphics[width=0.21\textwidth]{preamble/logos/RNActlogoresized2.pdf}} &
+        \hspace{0.08cm} % Adjust horizontal space between logos
+        \raisebox{-0.5\height}{\includegraphics[width=0.25\textwidth]{preamble/logos/sbb_logo.pdf}} \\
+    \end{tabular}
+\end{minipage}
+
+
+    \vspace{1cm} % Add some space below logos if needed
+\end{titlepage}
+
+\renewcommand{\contentsname}{Table of contents}
+\tableofcontents
+\newpage
+
+\mainmatter
+
+\newcounter{suppdata}
+\renewcommand{\thesuppdata}{\thechapter.\arabic{suppdata}}
+\newenvironment{suppdata}{%
+  \refstepcounter{suppdata}%
+  \noindent\textbf{Supplementary Data~\thesuppdata}\quad%
+  \label{suppdata\thesuppdata}%
+}{\bigskip}
+
+\newcommand{\suppfigref}[1]{Supplementary Fig.~\ref{#1}}
+\newcommand{\supptableref}[1]{Supplementary Table~\ref{#1}}
+\newcommand{\suppdataref}[1]{Supplementary Data~\ref{#1}}
+
+
+\input{constava/supplementary_information_constava}
+
+\input{pLDDT/plddt_supplementary}
+% \input{pLDDT/plddt_supplementary_part2}
+\input{pLDDT/plddt_supplementary_part2_v2}
+\input{b2b_deployment/supplementary_information}
+\end{document}

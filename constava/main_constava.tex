@@ -24,14 +24,17 @@ DOI: 10.1093/nargab/lqae082
     Protein dynamics and related conformational changes are essential for their function but difficult to characterise and interpret. Amino acids in a protein behave according to their local energy landscape, which is determined by their local structural context and environmental conditions. The lowest energy state for a given residue can correspond to sharply defined conformations, \textit{e.g.}, in a stable helix, or can cover a wide range of conformations, \textit{e.g.}, in intrinsically disordered regions. A good definition of such low energy states is therefore important to describe the behavior of a residue and how it changes with its environment. We propose a data-driven probabilistic definition of six low energy conformational states typically accessible for amino acid residues in proteins. This definition is based on solution NMR information of 1,322 proteins through a combined analysis of structure ensembles with interpreted chemical shifts. We further introduce a conformational state variability parameter that captures, based on an ensemble of protein structures from molecular dynamics or other methods, how often a residue moves between these conformational states. The approach enables a different perspective on the local conformational behavior of proteins that is complementary to their static interpretation from single structure models.
 \end{abstract}
 
-\section*{Author contributions}
-W.V., D.R. and G.O. conceptualised the study.
-G.O. developed the initial methodology.
-W.V., D.R., G.O. and D.B. provided supervision.
-W.V. provided the NMR data and directed the project.
-J.G.-G. and D.B. developed, implemented and validated the method.
-J.R.-M. performed the MD simulations.
-All authors contributed to the writing of the manuscript.
+\section*{\textcolor{red}{Aims of this chapter}}
+\begin{itemize}
+    \item \textcolor{red}{Definition of a protein structure representation that better captures statistical behaviour when multiple conformations are present}
+    \item \textcolor{red}{Description of this statistical behaviour based on data that more accurately reflects protein behaviour in solution}
+\end{itemize}
+
+\section*{\textcolor{red}{Contribution to this work}}
+
+% \textcolor{red}{In this work, Dr. David Bickel and I collaborated to develop, validate and understand the data-driven, probabilistic definition of conformational state propensities and conformational state variability here described. We jointly created and published a Python program, Constava, with our implementation of the method, the pre-trained probability density functions describing our proposed conformational states, and a variety of functionalities to tailor the method and its outputs to answer diverse scientific questions. }
+
+\textcolor{red}{In this work, Dr. David Bickel and I collaborated to develop, validate, and interpret a probabilistic, data-driven definition of conformational state propensities and variability. Together, we designed and published Constava, a Python program implementing this method, complete with pre-trained probability density functions that describe our conformational states and a variety of tools to adapt the method and its outputs to address different scientific questions.}
 
 \newpage
 
@@ -103,7 +106,9 @@ Gaussian kernel density estimators were then built for each conformational state
 
 \subsection{Inference of conformational state propensities} \label{inference_conf_states}
 
-Given a conformational ensemble, the kernel density estimates can then be used to infer the conformational state propensities for each residue. To do so, $(\phi, \psi)$-angle pairs  are extracted from the conformational ensemble and divided in $M$ samples of $N$ $(\phi, \psi)$-pairs. This can be done by \glspl{bootstrap} $N$ data points $M$ times, or by using a \gls{slidingwindow} of size $N$. For each of these samples the evidence is calculated by evaluating the probability density functions (PDF) at the given $(\phi, \psi)$-coordinates (equation \ref{eq_evidence}). Then, the likelihood for any state is its evidence relative to all other evidence (equation \ref{eq_likelihood}). We generally report the average over all $M$ samples obtained from the ensemble.
+Given a conformational ensemble, the kernel density estimates can then be used to infer the conformational state propensities for each residue. To do so, $(\phi, \psi)$-angle pairs  are extracted from the conformational ensemble and divided in $M$ samples of $N$ $(\phi, \psi)$-pairs. This can be done by \glspl{bootstrap} $N$ data points $M$ times, or by using a \gls{slidingwindow} of size $N$. For each of these samples the evidence is calculated by evaluating the probability density functions (PDF) at the given $(\phi, \psi)$-coordinates (equation \ref{eq_evidence}). \textcolor{red}{Sliding window sampling is preferred when working with temporally adjacent $(\phi, \psi)$-pairs, such as those from MD trajectories. Probability vectors derived from neighbouring $(\phi, \psi)$-pairs in this context should be more similar than those from randomly sampled pairs, resulting in a more precise calculation of the evidence. Sliding window sampling also facilitates the detection of local conformational state transitions. Bootstrap sampling, on the other hand, is only recommended for $(\phi, \psi)$-pairs that are not temporally adjacent, such as in NMR ensembles, where the advantages of sliding window sampling for calculating evidence are not applicable.} Then, the likelihood for any state is its evidence relative to all other evidence (equation \ref{eq_likelihood}). We generally report the average over all $M$ samples obtained from the ensemble.
+
+
 
 \begin{equation}
 \label{eq_evidence}
@@ -264,9 +269,10 @@ Supplementary Fig. 3.15 shows an overview over the state transitions observed in
 
 
 \parfillskip=0pt
-DSSP \cite{touw_series_2015,kabsch_dictionary_1983} and STRIDE \cite{lovell_structure_2003,frishman_knowledge-based_1995} are two of the most common tools to assign static secondary structure on protein structures. By applying them on every structure of an ensemble, conformational variable regions would receive changing assignments. To compare how such serial secondary structure assignments differ from our probabilistic method, we applied Constava, DSSP, and STRIDE to 113 MD ensembles.For the narrowly defined \textit{Core helix} and \textit{Core sheet} conformational states, near linear relations to $\text{H}$ ($\alpha$-helix) and $\text{E}$ ($\beta$-sheet), respectively, emerged (Supplementary Fig. 3.7 a, c \& Supplementary Fig. 3.8 a, c).
+DSSP \cite{touw_series_2015,kabsch_dictionary_1983} and STRIDE \cite{lovell_structure_2003,frishman_knowledge-based_1995} are two of the most common tools to assign static secondary structure on protein structures. By applying them on every structure of an ensemble, conformational variable regions would receive changing assignments. To compare how such serial secondary structure assignments differ from our probabilistic method, we applied Constava, DSSP, and STRIDE to 113 MD ensembles. For the narrowly defined \textit{Core helix} and \textit{Core sheet} conformational states, near linear relations to $\text{H}$ ($\alpha$-helix) and $\text{E}$ ($\beta$-sheet), respectively, emerged (Supplementary Fig. 3.7 a, c \& Supplementary Fig. 3.8 a, c).
 % (\suppfigref{fig:sup_fig_constava:dssp_assignments} a,c \& \suppfigref{fig:sup_fig_constava:stride_assignments} a,c). 
-This demonstrates that high propensities of \textit{Core helix} and \textit{Core sheet} indicate rigid residues that adopt stable secondary structure conformations, which are equally captured by DSSP and STRIDE. For the more dynamic\hfill
+% This demonstrates that high propensities of \textit{Core helix} and \textit{Core sheet} indicate rigid residues that adopt stable secondary structure conformations, which are equally captured by DSSP and STRIDE. For the more dynamic\hfill
+This demonstrates that high propensities of \textit{Core helix} and \textit{Core sheet} indicate rigid residues that adopt stable secondary structure conformations, which are equally captured by DSSP and STRIDE. For the more dynamic conformational states, relationships with traditional secondary structures contributions are more complex, without clear correlations (Supplementary Fig. 3.7 b, d-f \& Supplementary Fig. 3.8 b, d-f).
 
 \parfillskip=\fill  % To reverse the fill line 
 
@@ -285,8 +291,9 @@ This demonstrates that high propensities of \textit{Core helix} and \textit{Core
     \label{fig:md_timeseries}
 \end{figure}
 
-\newpage 
-\noindent conformational states, relationships with traditional secondary structures contributions are more complex, without clear correlations (Supplementary Fig. 3.7 b, d-f \& Supplementary Fig. 3.8 b, d-f)
+% \newpage 
+% \noindent conformational states, relationships with traditional secondary structures contributions are more complex, without clear correlations (Supplementary Fig. 3.7 b, d-f \& Supplementary Fig. 3.8 b, d-f)
+
 % (\suppfigref{fig:sup_fig_constava:dssp_assignments} b,d-f \& \suppfigref{fig:sup_fig_constava:stride_assignments} b,d-f).
 
 
@@ -421,6 +428,15 @@ We thank Adrian Diaz for the invaluable help in the distribution of this softwar
 % J.G.-G. and D.B. developed, implemented and validated the method.
 % J.R.-M. performed the MD simulations.
 % All authors contributed to the writing of the manuscript.
+
+\section*{Author contributions}
+W.V., D.R. and G.O. conceptualised the study.
+G.O. developed the initial methodology.
+W.V., D.R., G.O. and D.B. provided supervision.
+W.V. provided the NMR data and directed the project.
+J.G.-G. and D.B. developed, implemented and validated the method.
+J.R.-M. performed the MD simulations.
+All authors contributed to the writing of the manuscript.
 
 % % ========================================
 % \section*{Competing interests}

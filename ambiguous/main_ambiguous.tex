@@ -40,6 +40,9 @@ DOI: 10.3389/fmolb.2022.959956
     \end{enumerate}
 \end{enumerate}
 
+\section*{\textcolor{red}{Contribution to this work}}
+\textcolor{red}{In this chapter, I performed the analysis of AlphaFold2 in relation to different predicted metrics of protein dynamics, generated with bio2Byte Tools. While the assessment is performed with predicted metrics, my work in this article is a first assessment of the relationship between AlphaFold models and protein dynamics and flexibility, which was further explored in a subsequent article.}
+
 
 
 \newpage
@@ -219,6 +222,8 @@ AlphaFold2 \cite{jumper_highly_2021} can predict single low-energy conformations
 When subdividing these plots in relation to our datasets that indicate ambiguous residues (\figref{fig:chapter5:fig6}), these trends are more obvious. The ordered residues cluster at high pLDDT values (>80\%) and high backbone rigidity (>0.8), the disordered residues at very low pLDDT values (<40\%) and high backbone dynamics (<0.8). The ambiguous residues fall in between these categories, with many lower confidence pLDDT values between 80\% and 40\%, and backbone dynamics between 0.70-0.80, as well as significant overlap with the ordered and disordered categories. The disorder values confirm this trend, with few ordered residues predicted as having high disorder scores, and most disordered residues correctly predicted with high disorder scores. The ambiguous residues again give an intermediate picture, with more residues having scores intermediate between the typical scores for order and disorder.
 
 For the \textbf{fold_switch_set} only (\figref{fig:chapter5:fig7}), there are interesting differences in especially the AlphaFold2 pLDDT scores, which tend to be below 90\% for the residues that change conformation. The backbone dynamics also contains fewer high values, while more residues are predicted with high disorder.
+
+\textcolor{red}{In relation to Aim 2-a of this thesis for this chapter, AlphaFold's pLDDT metric does not effectively capture ambiguous protein behaviour. Although pLDDT distributions exhibit a clear preference for high values in ordered residues and low values in disordered residues, residues with ambiguous behaviour do not show intermediate pLDDT values (\figref{fig:chapter5:fig6}). While the pLDDT distribution for ambiguous residues may appear intermediate between those for ordered and disordered residues, individual pLDDT values do not directly indicate ambiguous behaviour.}
 
 
 \subsection{Relation to Post-Translational Modification Data}

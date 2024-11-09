@@ -31,9 +31,16 @@ DOI: 10.3389/fmolb.2022.959956
     Traditionally, our understanding of how proteins operate and how evolution shapes them is based on two main data sources: the overall protein fold and the protein amino acid sequence. However, a significant part of the proteome shows highly dynamic and/or structurally ambiguous behavior, which cannot be correctly represented by the traditional fixed set of static coordinates. Representing such protein behaviors remains challenging and necessarily involves a complex interpretation of conformational states, including probabilistic descriptions. Relating protein dynamics and multiple conformations to their function as well as their physiological context (\textit{e.g.}, post-translational modifications and subcellular localization), therefore, remains elusive for much of the proteome, with studies to investigate the effect of protein dynamics relying heavily on computational models. We here investigate the possibility of delineating three classes of protein conformational behavior: order, disorder, and ambiguity. These definitions are explored based on three different datasets, using interpretable machine learning from a set of features, from AlphaFold2 to sequence-based predictions, to understand the overlap and differences between these datasets. This forms the basis for a discussion on the current limitations in describing the behavior of dynamic and ambiguous proteins.
 \end{abstract}
 
-\section*{Author contributions}
+\section*{Aims of this chapter}
+\begin{enumerate}
+    \setcounter{enumi}{1}
+    \item AlphaFold can produce highly-accurate protein structural models from amino-acid sequence, enabling the structural prediction across whole proteomes. Considering that this method was trained and benchmarked with protein structural models produced under cryogenic conditions: 
+    \begin{enumerate}
+        \item Does AlphaFold's local confidence metric, pLDDT, effectively capture ambiguous protein behaviour?
+    \end{enumerate}
+\end{enumerate}
 
-JR-M trained the RF models; IG contributed the RF interpretation code; JR-M, TL, RP, PR, and KT contributed datasets; JG-G contributed the analysis of the AlphaFold2 models; KT contributed the analysis of deleterious mutants; PR contributed the analysis of PTMs; WV provided the manuscript concept and organization of results; JR-M, TL, JG-G, DB, BD, KT, PR, MS-F, and WV contributed to the writing.
+
 
 \newpage
 
@@ -262,3 +269,7 @@ In our view, it is essential that we move away from the two-state view of protei
 
 \section*{Data availability}
 The datasets generated and analysed for this study can be found in \burl{https://bitbucket.org/bio2byte/protein_ambiguity/}.
+
+\section*{Author contributions}
+
+JR-M trained the RF models; IG contributed the RF interpretation code; JR-M, TL, RP, PR, and KT contributed datasets; JG-G contributed the analysis of the AlphaFold2 models; KT contributed the analysis of deleterious mutants; PR contributed the analysis of PTMs; WV provided the manuscript concept and organization of results; JR-M, TL, JG-G, DB, BD, KT, PR, MS-F, and WV contributed to the writing.

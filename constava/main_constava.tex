@@ -24,15 +24,17 @@ DOI: 10.1093/nargab/lqae082
     Protein dynamics and related conformational changes are essential for their function but difficult to characterise and interpret. Amino acids in a protein behave according to their local energy landscape, which is determined by their local structural context and environmental conditions. The lowest energy state for a given residue can correspond to sharply defined conformations, \textit{e.g.}, in a stable helix, or can cover a wide range of conformations, \textit{e.g.}, in intrinsically disordered regions. A good definition of such low energy states is therefore important to describe the behavior of a residue and how it changes with its environment. We propose a data-driven probabilistic definition of six low energy conformational states typically accessible for amino acid residues in proteins. This definition is based on solution NMR information of 1,322 proteins through a combined analysis of structure ensembles with interpreted chemical shifts. We further introduce a conformational state variability parameter that captures, based on an ensemble of protein structures from molecular dynamics or other methods, how often a residue moves between these conformational states. The approach enables a different perspective on the local conformational behavior of proteins that is complementary to their static interpretation from single structure models.
 \end{abstract}
 
-\section*{\textcolor{red}{Aims of this chapter}}
-\begin{itemize}
-    \item \textcolor{red}{Definition of a protein structure representation that better captures statistical behaviour when multiple conformations are present}
-    \item \textcolor{red}{Description of this statistical behaviour based on data that more accurately reflects protein behaviour in solution}
-\end{itemize}
+\section*{Aims of this chapter}
+\begin{enumerate}
+\item Coordinate-based representations of proteins are limited when describing proteins that adopt multiple conformations. Even when numerical methods (\textit{e.g.} Root Mean Squared Fluctuations) are employed to describe the flexibility of these regions, they cannot identify conformational change events. To address this: 
+    \begin{enumerate}
+        \item Can we develop a protein representation that better captures statistical behaviour across multiple conformational states?
+        \item Can this statistical behaviour be described using data that more accurately reflects protein behaviour in solution?
+        \item Can this method identify residue-level changes in conformation related to changes in such behaviour?
+    \end{enumerate}
+\end{enumerate}
 
 \section*{\textcolor{red}{Contribution to this work}}
-
-% \textcolor{red}{In this work, Dr. David Bickel and I collaborated to develop, validate and understand the data-driven, probabilistic definition of conformational state propensities and conformational state variability here described. We jointly created and published a Python program, Constava, with our implementation of the method, the pre-trained probability density functions describing our proposed conformational states, and a variety of functionalities to tailor the method and its outputs to answer diverse scientific questions. }
 
 \textcolor{red}{In this work, Dr. David Bickel and I collaborated to develop, validate, and interpret a probabilistic, data-driven definition of conformational state propensities and variability. Together, we designed and published Constava, a Python program implementing this method, complete with pre-trained probability density functions that describe our conformational states and a variety of tools to adapt the method and its outputs to address different scientific questions.}
 

@@ -62,7 +62,7 @@ Another significant influence on protein behavior is post-translational modifica
 \begin{figure}[tbh]
     \centering
     \includegraphics[width=\linewidth]{ambiguous//figures_ambiguous/fig1.pdf}
-    \caption{\textbf{Conceptual definition of the “ambiguous” regions of proteins addressed in this study.}}
+    \caption{\textbf{Conceptual definition of the “ambiguous” regions of proteins addressed in this study.} \textcolor{red}{Left to right, this figure illustrates the characteristics of proteins with increasing degree of order from the perspective of conformational diversity, conformational preferences and dynamics.}}
     \label{fig:chapter5:fig1}
 \end{figure}
 
@@ -149,7 +149,7 @@ The F1 scores for the \textbf{folding_upon_binding_RF} model to recognize foldin
 \begin{table}[tbh]
 \centering
 \footnotesize
-\caption{\textbf{Performances of the trained random forest predictions}}
+\caption{\textbf{Performances of the trained random forest predictions.} \textcolor{red}{The predictions to predict the labels in each dataset is presented per each individual label, for every dataset.}}
 \label{tab:rf_performance}
 \begin{tabular}{@{}cccccc@{}}
 \toprule
@@ -172,7 +172,7 @@ The \textbf{fold_switching_RF} model, based on the \textbf{foldswitch_set}, has 
 \begin{figure}[tbh]
     \centering
     \includegraphics[width=\linewidth]{ambiguous//figures_ambiguous/fig2.pdf}
-    \caption{\textbf{Feature importance variation for the RF classifier for the disprot_codnas_set (top left), the foldswitch_set (top right), and the combined_set (bottom left).}}
+    \caption{\textbf{Feature importance variation for the RF classifier.} \textcolor{red}{The feature importance distribution of the trees in the random model classifiers is here displayed as a box plot for the models trained on each dataset. Top left: feature importance for the disprot_codnas_set. Top right: feature importance for the the foldswitch_set. Bottom left: feature importance for the combined_set.}}
     \label{fig:chapter5:fig2}
 \end{figure}
 
@@ -188,7 +188,7 @@ To assess to what extent the RF predictor can recognize the conditional fold of 
 \begin{figure}[tbh]
     \centering
     \includegraphics[width=\linewidth]{ambiguous//figures_ambiguous/fig3.pdf}
-    \caption{\textbf{Amino acid fractions observed in the disprot_codnas_set for ordered residues (CoDNaS_O), transition (DisProt_T), and disordered (DisProt_D) and the foldswitch_set for fold-switching residues (Foldswitch_C) and residues that stay in the same fold (Foldswitch_S).}}
+    \caption{\textbf{Amino acid fractions observed in each dataset.} Different fractions of amino acids can be observed in the composition of selected datasets labels: the disprot_codnas_set for ordered residues (CoDNaS_O), transition (DisProt_T) and disordered (DisProt_D), and the foldswitch_set for fold-switching residues (Foldswitch_C) and residues that stay in the same fold (Foldswitch_S).}
     \label{fig:chapter5:fig3}
 \end{figure}
 
@@ -215,7 +215,7 @@ AlphaFold2 \cite{jumper_highly_2021} can predict single low-energy conformations
 \begin{figure}[tbh]
     \centering
     \includegraphics[width=\linewidth]{ambiguous//figures_ambiguous/fig6.pdf}
-    \caption{\textbf{Relation between pLDDT score and backbone dynamics (top) and disorder (bottom) for the O/T/D classes from the disprot_codnas_set}}
+    \caption{\textbf{Relation between pLDDT score and backbone dynamics (top) and disorder (bottom) for the O/T/D classes from the disprot_codnas_set.} \textcolor{red}{The top and bottom rows show the relation of pLDDT with predicted backbone dynamics from Dynamine and long disordered from Disomine, respectively. The columns stratify the relationship for ordered, ambiguous, and disordered residues, respectively.}}
     \label{fig:chapter5:fig6}
 \end{figure}
 
@@ -233,7 +233,7 @@ Post-translational modifications (PTMs) of amino acid residues are important for
 \begin{figure}[tbh]
     \centering
     \includegraphics[width=\linewidth]{ambiguous//figures_ambiguous/fig7.pdf}
-    \caption{\textbf{Relation between the pLDDT score and backbone dynamics (left), early folding (middle), disorder (right) for the fold_switch_set same (top row), and convert (bottom row) residues.}}
+    \caption{\textbf{Relation between the pLDDT score and diverse predicted metrics.} \textcolor{red}{The predicted metrics are: backbone dynamics (left), early folding (middle), and long disorder (right). The label for the dataset fold_switch_set are same (top row), and convert (bottom row) residues.}}
     \label{fig:chapter5:fig7}
 \end{figure}
 

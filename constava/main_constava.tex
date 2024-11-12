@@ -305,7 +305,9 @@ This demonstrates that high propensities of \textit{Core helix} and \textit{Core
 
 However, the probabilistic nature of the conformational states makes Constava more robust in detecting secondary structure propensities from ensemble data than approaches that only consider static protein structures like  DSSP and STRIDE. When analyzing conformational ensembles from \textit{e.g.} MD simulations, Constava has the potential to detect residues moving towards a secondary structure state, well before it is recognised by DSSP or STRIDE (\figref{fig:dssp_vs_constava} and Supplementary Fig. 3.9).
 % \suppfigref{fig:sup_fig_constava:detect_trasient}). 
-In this example, Constava picks up on the propensities of multiple consecutive residues to form a helix long before the helix, as defined by DSSP and STRIDE, emerges. In the study of IDPs that exhibit high conformational freedom, so that relevant transient conformations cannot be efficiently sampled, this ability of Constava could be extremely useful in picking up pre-sampled conformations that are for example relevant for forming interactions, reducing the need for unachievable exhaustive sampling. 
+In this example, Constava picks up on the propensities of multiple consecutive residues to form a helix long before the helix, as defined by DSSP and STRIDE, emerges. \textcolor{red}{Note that comparing conformational state propensities with defined DSSP and STRIDE secondary structures should not be taken as a benchmarking of our method, but as an indication of latent conformations. The criteria for secondary structure assignment methods is stricter and generally based on crystallographic criteria, so interpreting their comparison as a benchmark is not correct.}
+
+\textcolor{red}{Nevertheless,} in the study of IDPs that exhibit high conformational freedom, so that relevant transient conformations cannot be efficiently sampled, this ability of Constava could be extremely useful in picking up pre-sampled conformations that are for example relevant for forming interactions, reducing the need for unachievable exhaustive sampling. 
 
 % Figure 4 
 \begin{figure}[ht!]

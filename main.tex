@@ -33,7 +33,8 @@
 % \usepackage{etoolbox}
 \usepackage{hyphenat}
 % \usepackage[toc, acronym, section=chapter]{glossaries}
-\usepackage[toc, acronym, nonumberlist, section=chapter]{glossaries}
+% \usepackage[toc, acronym, nonumberlist, section=chapter]{glossaries}
+\usepackage[toc, nonumberlist, section=chapter]{glossaries}
 % \usepackage{xr}
 
 % \renewcommand{\textcolor}[2]{#2}
@@ -239,6 +240,10 @@ Prof. Dr. Rachid Tahzima (ULiège/ILVO)}
 \include{preamble/overal_samenvatting_final}
 \cleardoublepage
 
+% \include{preamble/acknowledgements}
+\include{preamble/acknowledgements_filled}
+\newpage
+
 
 % Table of Contents
 \renewcommand{\contentsname}{Table of contents}
@@ -250,8 +255,8 @@ Prof. Dr. Rachid Tahzima (ULiège/ILVO)}
 \printglossaries
 \cleardoublepage
 
-\include{preamble/acknowledgements}
-\newpage
+% \include{preamble/acknowledgements}
+% \newpage
 
 \mainmatter
 

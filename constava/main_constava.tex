@@ -75,12 +75,32 @@ Based on the ShiftCrypt values and STRIDE \cite{lovell_structure_2003,frishman_k
 \begin{itemize} % Split in two to make format fit well
   \item \textit{Core helix}: Residues that exclusively adopt helical conformation in all models of their associated NMR ensemble with shiftCrypt values $\le 0.2$; $N = 93,957 \:\text{residues}$
   \item \textit{Surrounding helix}: Residues that adopt helical conformation in the majority of models of their associated NMR ensemble with shiftCrypt values in the range $(0.2, 0.4]$; $N = 8,180 \:\text{residues}$
-
+    \item \textit{Core sheet}: Residues that exclusively adopt extended conformation in all models of their associated NMR ensemble with shiftCrypt values $\ge 0.8$; $N = 47,280 \:\text{residues}$
+  \item \textit{Surrounding sheet}: Residues that adopt extended conformation in the majority of models of their associated NMR ensemble with shiftCrypt values in the range $[0.6, 0.8)$; $N = 11,280 \:\text{residues}$
+  \item \textit{Turn}: Residues that adopt turn conformation in the majority of models of their associated NMR ensemble with shiftCrypt values in the range $(0.4, 0.6)$; $N = 75,377 \:\text{residues}$
+  \item \textit{Other}: Residues that  adopt coil conformation in the majority of models of their associated NMR ensemble with shiftCrypt values in the range $(0.4, 0.6)$; $N = 74,542 \:\text{residues}$
 \end{itemize}
 
 
 % \newpage
 
+
+
+
+
+
+
+
+% \begin{itemize}
+%   % \item \textit{Core helix}: Residues that exclusively adopt helical conformation in all models of their associated NMR ensemble with shiftCrypt values $\le 0.2$; $N = 93,957 \:\text{residues}$
+%   % \item \textit{Surrounding helix}: Residues that adopt helical conformation in the majority of models of their associated NMR ensemble with shiftCrypt values in the range $(0.2, 0.4]$; $N = 8,180 \:\text{residues}$
+%   \item \textit{Core sheet}: Residues that exclusively adopt extended conformation in all models of their associated NMR ensemble with shiftCrypt values $\ge 0.8$; $N = 47,280 \:\text{residues}$
+%   \item \textit{Surrounding sheet}: Residues that adopt extended conformation in the majority of models of their associated NMR ensemble with shiftCrypt values in the range $[0.6, 0.8)$; $N = 11,280 \:\text{residues}$
+%   \item \textit{Turn}: Residues that adopt turn conformation in the majority of models of their associated NMR ensemble with shiftCrypt values in the range $(0.4, 0.6)$; $N = 75,377 \:\text{residues}$
+%   \item \textit{Other}: Residues that  adopt coil conformation in the majority of models of their associated NMR ensemble with shiftCrypt values in the range $(0.4, 0.6)$; $N = 74,542 \:\text{residues}$
+% \end{itemize}
+
+Gaussian kernel density estimators were then built for each conformational state using the scikit-learn python package with bandwidth for the Gaussians equal to 0.13 radians. They represent how likely it is that a residue in a conformational state (as defined above) occupies a certain region in the backbone dihedral space as observed in the NMR ensemble. The robustness of these probabilistic models is assessed in Supplementary Fig. 3.1. % \suppfigref{fig:sup_fig_constava:cross_validation}.
 
 % Figure 1
 \begin{figure}[H]
@@ -91,24 +111,9 @@ Based on the ShiftCrypt values and STRIDE \cite{lovell_structure_2003,frishman_k
     \label{overal_figure}
 \end{figure}
 
-
-
-
-
-\begin{itemize}
-  % \item \textit{Core helix}: Residues that exclusively adopt helical conformation in all models of their associated NMR ensemble with shiftCrypt values $\le 0.2$; $N = 93,957 \:\text{residues}$
-  % \item \textit{Surrounding helix}: Residues that adopt helical conformation in the majority of models of their associated NMR ensemble with shiftCrypt values in the range $(0.2, 0.4]$; $N = 8,180 \:\text{residues}$
-  \item \textit{Core sheet}: Residues that exclusively adopt extended conformation in all models of their associated NMR ensemble with shiftCrypt values $\ge 0.8$; $N = 47,280 \:\text{residues}$
-  \item \textit{Surrounding sheet}: Residues that adopt extended conformation in the majority of models of their associated NMR ensemble with shiftCrypt values in the range $[0.6, 0.8)$; $N = 11,280 \:\text{residues}$
-  \item \textit{Turn}: Residues that adopt turn conformation in the majority of models of their associated NMR ensemble with shiftCrypt values in the range $(0.4, 0.6)$; $N = 75,377 \:\text{residues}$
-  \item \textit{Other}: Residues that  adopt coil conformation in the majority of models of their associated NMR ensemble with shiftCrypt values in the range $(0.4, 0.6)$; $N = 74,542 \:\text{residues}$
-\end{itemize}
-
-Gaussian kernel density estimators were then built for each conformational state using the scikit-learn python package with bandwidth for the Gaussians equal to 0.13 radians. They represent how likely it is that a residue in a conformational state (as defined above) occupies a certain region in the backbone dihedral space as observed in the NMR ensemble. The robustness of these probabilistic models is assessed in Supplementary Fig. 3.1. % \suppfigref{fig:sup_fig_constava:cross_validation}.
-
 \subsection{Inference of conformational state propensities} \label{inference_conf_states}
 
-Given a conformational ensemble, the kernel density estimates can then be used to infer the conformational state propensities for each residue. To do so, $(\phi, \psi)$-angle pairs  are extracted from the conformational ensemble and divided in $M$ samples of $N$ $(\phi, \psi)$-pairs. This can be done by \glspl{bootstrap} $N$ data points $M$ times, or by using a \gls{slidingwindow} of size $N$. For each of these samples the evidence is calculated by evaluating the probability density functions (PDF) at the given $(\phi, \psi)$-coordinates (equation \ref{eq_evidence}). \textcolor{red}{Sliding window sampling is preferred when working with temporally adjacent $(\phi, \psi)$-pairs, such as those from MD trajectories. Probability vectors derived from neighbouring $(\phi, \psi)$-pairs in this context should be more similar than those from randomly sampled pairs, resulting in a more precise calculation of the evidence. Sliding window sampling also facilitates the detection of local conformational state transitions. Bootstrap sampling, on the other hand, is only recommended for $(\phi, \psi)$-pairs that are not temporally adjacent, such as in NMR ensembles, where the advantages of sliding window sampling for calculating evidence are not applicable.} Then, the likelihood for any state is its evidence relative to all other evidence (equation \ref{eq_likelihood}). We generally report the average over all $M$ samples obtained from the ensemble.
+Given a conformational ensemble, the kernel density estimates can then be used to infer the conformational state propensities for each residue. To do so, $(\phi, \psi)$-angle pairs  are extracted from the conformational ensemble and divided in $M$ samples of $N$ $(\phi, \psi)$-pairs. This can be done by \glspl{bootstrap} $N$ data points $M$ times, or by using a \gls{slidingwindow} of size $N$. For each of these samples the evidence is calculated by evaluating the probability density functions (PDF) at the given $(\phi, \psi)$-coordinates (equation \ref{eq_evidence}). \textcolor{red}{Sliding window sampling is preferred when working with temporally adjacent $(\phi, \psi)$-pairs, such as those from MD trajectories. Probability vectors derived from neighbouring $(\phi, \psi)$-pairs in this context should be more similar than those from randomly sampled pairs, resulting in a more precise calculation of a residue's evidences. Sliding window sampling also facilitates the detection of local conformational state transitions. Bootstrap sampling, on the other hand, is only recommended for $(\phi, \psi)$-pairs that are not temporally adjacent, such as in NMR ensembles, where the advantages of sliding window sampling for calculating evidence are not applicable.} Then, the likelihood for any state is its evidence relative to all other evidences (equation \ref{eq_likelihood}). We generally report the average over all $M$ samples obtained from the ensemble.
 
 
 
@@ -251,7 +256,7 @@ Conformational\\state variability\end{tabular} &
 
 We further define the conformational state variability parameter as the ability of a residue to adopt multiple conformational states in a given protein in a specific environment. This variability does not reflect actual dynamics, but rather indicates whether that residue is switching between different low energy conformational states. For example, a residue in states \textit{Turn} or \textit{Other} may exhibit high backbone dynamics (its $(\phi, \psi)$-angles change constantly) while still having a low conformational state variability (its overall behavior is best described by one conformational state). This would be a typical conformational state adopted by residues in disordered regions of proteins. A residue in a well-defined stable helix, on the other hand, will also have low conformational state variability as well as very low backbone dynamics.
 
-\textcolor{red}{The definition of conformational state propensities and variability establishes a protein representation method that captures statistical behaviour across multiple conformational states, as well as a residue's ability to exist in several states, thereby fulfilling aim 1-a}
+\textcolor{red}{The definition of conformational state propensities and variability establishes a protein representation method that captures statistical behaviour across multiple conformational states, as well as a residue's ability to exist in several states, thereby fulfilling aim 1-a.}
 
 \subsection{Constava captures transient conformational states from MD ensembles} 
 \label{section:multi_sample}
@@ -265,7 +270,7 @@ To investigate the impact of the number of $(\phi, \psi)$-angle pairs in the inf
 while $N = 25$ is well suited to obtain preferred conformational states without losing information on less populated states (see Supplementary Fig. 3.6).
 % (see \suppfigref{fig:sup_fig_constava:bootstrap_size}).
 
-The random sampling of the bootstrapping procedure, however, loses any information about connections between models, such as the timeline in an MD simulation. A sliding window approach was therefore implemented, which instead of randomly sampling from the whole population chooses blocks of adjacent (time-related) samples. This resulted in a much more sensitive detection of transient conformational states than regular bootstrapping (\figref{fig:md_timeseries} c and d). \textcolor{red}{Using window sampling in MD time frames enables the identification of residue-level changes in conformational states, thereby fulfilling aim 1-c of this thesis}. Moreover, by gradually extending the window size of the sliding window, information about the time intervals in which these states are transitioning between themselves can be obtained. Small window sizes pick up more transient states of shorter duration, while longer window sizes only detect those states that are stable for a longer time (\figref{fig:md_timeseries} c and e). 
+The random sampling of the bootstrapping procedure, however, loses any information about connections between models, such as the timeline in an MD simulation. A sliding window approach was therefore implemented, which instead of randomly sampling from the whole population chooses blocks of adjacent (time-related) samples. This resulted in a much more sensitive detection of transient conformational states than regular bootstrapping (\figref{fig:md_timeseries} c and d). \textcolor{red}{Using window sampling in MD time frames enables the identification of residue-level transitions in conformational states, thereby fulfilling aim 1-c of this thesis}. Moreover, by gradually extending the window size of the sliding window, information about the time intervals in which these states are transitioning between themselves can be obtained. Small window sizes pick up more transient states of shorter duration, while longer window sizes only detect those states that are stable for a longer time (\figref{fig:md_timeseries} c and e). 
 % \suppfigref{fig:sup_fig_constava:co-occurrence} 
 Supplementary Fig. 3.15 shows an overview over the state transitions observed in our conformational dataset. Due to the higher sensitivity, using a sliding window is the preferred sub-sampling method for data obtained from time series (\textit{e.g.}, MD trajectories). For ensembles where no relation between adjacent ensemble members can be assumed (\textit{e.g.}, NMR ensembles), bootstrapping is the method of choice, as there is no direct connection between the sampled models.
 
@@ -274,13 +279,19 @@ Supplementary Fig. 3.15 shows an overview over the state transitions observed in
 \label{section:DSSP_vs_constava}
 
 
-\parfillskip=0pt
+% \parfillskip=0pt
 DSSP \cite{touw_series_2015,kabsch_dictionary_1983} and STRIDE \cite{lovell_structure_2003,frishman_knowledge-based_1995} are two of the most common tools to assign static secondary structure on protein structures. By applying them on every structure of an ensemble, conformational variable regions would receive changing assignments. To compare how such serial secondary structure assignments differ from our probabilistic method, we applied Constava, DSSP, and STRIDE to 113 MD ensembles. For the narrowly defined \textit{Core helix} and \textit{Core sheet} conformational states, near linear relations to $\text{H}$ ($\alpha$-helix) and $\text{E}$ ($\beta$-sheet), respectively, emerged (Supplementary Fig. 3.7 a, c \& Supplementary Fig. 3.8 a, c).
 % (\suppfigref{fig:sup_fig_constava:dssp_assignments} a,c \& \suppfigref{fig:sup_fig_constava:stride_assignments} a,c). 
 % This demonstrates that high propensities of \textit{Core helix} and \textit{Core sheet} indicate rigid residues that adopt stable secondary structure conformations, which are equally captured by DSSP and STRIDE. For the more dynamic\hfill
 This demonstrates that high propensities of \textit{Core helix} and \textit{Core sheet} indicate rigid residues that adopt stable secondary structure conformations, which are equally captured by DSSP and STRIDE. For the more dynamic conformational states, relationships with traditional secondary structures contributions are more complex, without clear correlations (Supplementary Fig. 3.7 b, d-f \& Supplementary Fig. 3.8 b, d-f).
 
-\parfillskip=\fill  % To reverse the fill line 
+However, the probabilistic nature of the conformational states makes Constava more robust in detecting secondary structure propensities from ensemble data than approaches that only consider static protein structures like  DSSP and STRIDE. When analyzing conformational ensembles from \textit{e.g.} MD simulations, Constava has the potential to detect residues moving towards a secondary structure state, well before it is recognised by DSSP or STRIDE (\figref{fig:dssp_vs_constava} and Supplementary Fig. 3.9).
+% \suppfigref{fig:sup_fig_constava:detect_trasient}). 
+In this example, Constava picks up on the propensities of multiple consecutive residues to form a helix long before the helix, as defined by DSSP and STRIDE, emerges. \textcolor{red}{Note that comparing conformational state propensities with defined DSSP and STRIDE secondary structures should not be interpreted as a benchmarking of our method, but as a presence indication of latent conformations. The criteria employed by secondary structure assignment methods is stricter and generally based on crystallographic criteria, so interpreting their comparison as a benchmark is not correct.}
+
+\textcolor{red}{Nevertheless,} in the study of IDPs that exhibit high conformational freedom, so that relevant transient conformations cannot be efficiently sampled, this ability of Constava could be extremely useful in picking up pre-sampled conformations that are for example relevant for forming interactions, reducing the need for unachievable exhaustive sampling. 
+
+% \parfillskip=\fill  % To reverse the fill line 
 
 % Figure 3
 \begin{figure}[H]
@@ -303,11 +314,9 @@ This demonstrates that high propensities of \textit{Core helix} and \textit{Core
 % (\suppfigref{fig:sup_fig_constava:dssp_assignments} b,d-f \& \suppfigref{fig:sup_fig_constava:stride_assignments} b,d-f).
 
 
-However, the probabilistic nature of the conformational states makes Constava more robust in detecting secondary structure propensities from ensemble data than approaches that only consider static protein structures like  DSSP and STRIDE. When analyzing conformational ensembles from \textit{e.g.} MD simulations, Constava has the potential to detect residues moving towards a secondary structure state, well before it is recognised by DSSP or STRIDE (\figref{fig:dssp_vs_constava} and Supplementary Fig. 3.9).
-% \suppfigref{fig:sup_fig_constava:detect_trasient}). 
-In this example, Constava picks up on the propensities of multiple consecutive residues to form a helix long before the helix, as defined by DSSP and STRIDE, emerges. \textcolor{red}{Note that comparing conformational state propensities with defined DSSP and STRIDE secondary structures should not be taken as a benchmarking of our method, but as an indication of latent conformations. The criteria for secondary structure assignment methods is stricter and generally based on crystallographic criteria, so interpreting their comparison as a benchmark is not correct.}
 
-\textcolor{red}{Nevertheless,} in the study of IDPs that exhibit high conformational freedom, so that relevant transient conformations cannot be efficiently sampled, this ability of Constava could be extremely useful in picking up pre-sampled conformations that are for example relevant for forming interactions, reducing the need for unachievable exhaustive sampling. 
+
+
 
 % Figure 4 
 \begin{figure}[ht!]
@@ -354,7 +363,9 @@ These findings indicate that conformational state variability offers complementa
 \subsection{Conformational state variability for amino acids per order preference class} \label{section:aa_preference}
 
 Amino acids have intrinsic properties that predispose them to facilitate the formation of ordered or disordered regions in proteins. Based on a previously used classification \cite{cilia_protein_2013} the conformational state variability was examined within three classes: preferentially ordered (cysteine, phenylalanine, isoleucine, leucine, valine, tryptophan, and tyrosine), neutral (alanine, glutamic acid, lysine, methionine, glutamine, arginine, threonine, and histidine) and preferentially disordered (aspartic acid, glycine,  asparagine, proline, and serine) residues. As expected, amino acids with preference for order exhibit lower conformational state variability than those with preference for disorder (\figref{fig:conva_per_aa_class}). Notable exceptions in the disordered category are glycine and proline. Both show low conformational state variabilities, which in this case reflects their tendency to exclusively adopt \textit{Turn} or \textit{Other} conformational states, without switching to other conformational states. Both these states represent mostly flat energy landscapes with low energy barriers, thus allowing for random movement or disorder (\figref{fig:kernels_energy}). 
-\textcolor{red}{Cysteine and serine are two amino acids with structural similarities, but they differ in cysteine’s unique ability to form covalent disulphide bonds with other cysteine residues. These disulphide bonds help stabilise the protein’s tertiary structure. Despite this structural constraint, cysteine displays dynamic behaviour comparable to that of serine. Constava is capable of detecting this variability even when cysteine’s coordinates are restricted by disulphide bonds, unlike traditional coordinate-based approaches, which often overlook such dynamism. Consequently, cysteine, typically regarded as order-prone, exhibits conformational state variability similar to disorder-prone serine (\figref{fig:conva_per_aa_class}), with which it shares notable chemical structural similarities.}
+
+\textcolor{red}{Moreover, cysteine and serine are two amino acids with structural similarities, but they differ in cysteine’s unique ability to form covalent disulphide bonds with other cysteine residues. These disulphide bonds help stabilise the protein’s tertiary structure. Despite this structural constraint, cysteine displays dynamic behaviour comparable to that of serine. Constava is capable of detecting this variability even when cysteine’s coordinates are restricted by disulphide bonds, unlike traditional coordinate-based approaches, which often overlook such dynamism. Consequently, cysteine, typically regarded as order-prone, exhibits conformational state variability similar to disorder-prone serine (\figref{fig:conva_per_aa_class}), with which it shares notable chemical structural similarities.}
+
 Note that aspartic acid, asparagine and serine have higher conformational state variability, indicating they are more capable of switching states. This highlights an interesting feature of the conformational state variability, residues that remain in the same low energy conformational state, even if that conformational state is effectively dynamic, exhibit low conformational state variability. This is also reflected in \textit{Other} conformational states in Supplementary Fig. 3.13.
 % \suppfigref{fig:sup_fig_constava:var_vs_propensity}.
 
@@ -374,7 +385,7 @@ To assess the ability of our method to obtain relevant features from structural 
 
 Both proteins have been extensively studied by NMR, which indicated that the N-terminal part of both proteins ($\alpha$ Syn: aa 1-98, $\beta$ Syn: aa 1-76) adopts random coil conformation. In contrast, the C-terminal region of both proteins exhibited extended conformations, with $\alpha$ Syn primarily being in $\beta$-sheet conformation \cite{allison_relationship_2014} and $\beta$ Syn adopting a polyproline II (ppII) state \cite{bertoncini_structural_2007}. Constava here illustrates its ability to extract these key features from a structural ensemble. While the N-terminal parts in both proteins primarily show \textit{Other} with intermittent \textit{Turn} corresponding to random coil state, the C-terminal propensities are shifted towards extended conformations, \textit{i.e.}, \textit{Surrounding sheet} and \textit{Core sheet} (\figref{fig:synucleins}). Notably, the \textit{Core sheet} region, which is exclusively populated in $\alpha$ Syn is  strictly limited to $\beta$-sheet conformations, while \textit{Surrounding sheet} which is prevalent in $\beta$ Syn covers all extended states including the ppII region. Whilst these ensembles were generated using the NMR data and so should reflect experimental observations, Constava here shows the ability to directly pick up these relevant structural determinants with straightforward visualisation and interpretation possible.
 
-\textcolor{red}{These results highlight Constava's potential application in the protein design of intrinsically disordered proteins (IDPs). Although IDPs do not adopt a defined secondary structure, Constava effectively captures the propensities of their regions for the conformational states defined in this work (\figref{fig:synucleins}). Leveraging the information result of MD simulations, Constava could assess the effects of selected mutations in IDPs, offering a less labour-intensive alternative to expressing and experimentally studying mutant proteins. This approach could narrow the search space in protein design efforts and enable comparisons between predicted and experimental behaviours for proteins that undergo expression and analysis.}
+\textcolor{red}{These results highlight Constava's potential application in the protein design of intrinsically disordered proteins (IDPs). Although IDPs do not adopt a defined secondary structure, Constava effectively captures the propensities of their regions for the conformational states defined in this work (\figref{fig:synucleins}). Leveraging the information result of MD simulations, Constava could assess the effects of selected mutations in IDPs, offering a less labour-intensive alternative to expressing and experimentally studying mutant proteins. This approach may narrow the search space in protein design efforts and enable comparisons between predicted and experimental behaviours for proteins that undergo expression and analysis.}
 
 % Figure 7
 \begin{figure}[!t]

@@ -36,8 +36,9 @@
 % \usepackage[toc, acronym, nonumberlist, section=chapter]{glossaries}
 \usepackage[toc, nonumberlist, section=chapter]{glossaries}
 % \usepackage{xr}
+\usepackage{pdfpages}
 
-% \renewcommand{\textcolor}[2]{#2}
+\renewcommand{\textcolor}[2]{#2}
 
 \hyphenation{res-i-dues}
 \hyphenation{Alpha-Fold}
@@ -149,6 +150,13 @@
 \input{preamble/glossary_entries}
 
 \begin{document}
+
+% % include cover
+% \includepdf[pages=-]{20241008_v5_Thesis_cover_jgg_only_front.pdf} 
+% % SUPPRESS PAGE NUMBER FOR NEXT PAGE
+% \thispagestyle{empty} % Removes page numbering for this page
+% \clearpage % Move to the next page cleanly
+
 \frontmatter
 
 \begin{titlepage}
